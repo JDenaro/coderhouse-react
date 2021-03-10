@@ -6,8 +6,8 @@ export const ItemListContainer = () => {
             <div className="row mt-5">
                 <div className="col-8">                
                     <div className="card flex-row flex-wrap p-3">
-                        <div className="card-header border-0">
-                            <img src="//placehold.it/200" alt="" />
+                        <div className="card-header border-0 bg-transparent">
+                            <img src="https://shop.trezor.io/static/img/product/T2.jpg" alt="" style={{maxWidth: 300}}/>
                         </div>
                         <div className="card-block px-2">
                             <h4 className="card-title">Titulo producto</h4>
