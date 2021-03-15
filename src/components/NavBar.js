@@ -8,8 +8,8 @@ export const NavBar = () => {
         <>
             <nav className="navbar navbar-dark bg-dark">
                 <div className="container align-items-center">
-                    <div>
-                        <img src={shield} alt="logo" />
+                    <div className="d-flex">
+                        <img src={shield} className="logo align-self-center" alt="logo" />
                         <a className="navbar-brand pl-1" href="#">REACTIVE WALLETS</a>  
                     </div>
                     <div>

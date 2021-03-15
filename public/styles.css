@@ -19,9 +19,21 @@ input {
     border-right-style: hidden;
     border-left-style: hidden;
     border-bottom-style: groove;
-    background-color: #eee;
+    border: 0;
 }
 
 .no-outline:focus {
     outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.btn:focus,
+.btn:active {
+    outline: none !important;
+    box-shadow: none;
 }

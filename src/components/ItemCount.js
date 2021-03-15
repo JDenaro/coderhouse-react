@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import add from "../assets/icons/add.svg"
+import remove from "../assets/icons/remove.svg"
 
 export const ItemCount = ({ initial, stock, onAdd }) => {
 
@@ -17,10 +19,14 @@ export const ItemCount = ({ initial, stock, onAdd }) => {
     }
 
     return (
-        <div className="cart-action border">
-            <button className="btn" onClick={handleSubstract}>-</button>
-            <input type="number" min="0" max={stock} className="text-center" value={counter} />
-            <button className="btn" onClick={handleAdd}>+</button>
+        <div className="d-flex justify-content-between align-items-center">
+            <div className="border rounded">
+                <button className="btn" onClick={handleSubstract}><img src={remove} /></button>
+                <input type="number" min="0" max={stock} className="text-center" value={counter} />
+                <button className="btn" onClick={handleAdd}><img src={add} /></button>
+            </div>
+            <div className="d-block py-auto"><p>Stock: {stock}</p></div>
+            
         </div >
     )
 }
