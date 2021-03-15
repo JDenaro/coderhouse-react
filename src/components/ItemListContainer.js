@@ -4,7 +4,8 @@ import { ItemCount } from './ItemCount'
 
 export const ItemListContainer = () => {
 
-    const onAdd = () => {
+    const onAdd = (e, q) => {
+        alert(`Agregaste ${q} elementos al carrito`)
     }
 
     return (
@@ -22,7 +23,6 @@ export const ItemListContainer = () => {
                                 <p className="card-text">
                                     The Trezor Model T is an advanced cryptocurrency hardware wallet. Store Bitcoin, passwords, tokens and other keys with confidence. Invented for your digital independence.
                             </p>
-                                <a href="#" className="btn btn-primary">Boton</a>
                                 <ItemCount initial={1} stock={5} onadd={onAdd} />
                             </div>
                         </div>

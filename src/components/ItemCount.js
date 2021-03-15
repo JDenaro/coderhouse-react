@@ -4,11 +4,23 @@ export const ItemCount = ({ initial, stock, onAdd }) => {
 
     const [counter, setCounter] = useState(initial)
 
+    const handleAdd = () => {
+        if (counter < 5) {
+            setCounter(counter + 1)            
+        }
+    }
+
+    const handleSubstract = () => {
+        if (counter > 0) {
+            setCounter(counter - 1)            
+        }
+    }
+
     return (
         <div className="cart-action">
-            <button className="btn btn-trigger first">-</button>
-            <input type="number" min="0" max={stock} className="text-center" placeholder={initial} />
-            <button className="btn btn-trigger last">+</button>
+            <button className="btn border" onClick={handleSubstract}>-</button>
+            <input type="number" min="0" max={stock} className="text-center" value={counter} />
+            <button className="btn border" onClick={handleAdd}>+</button>
         </div >
     )
 }
