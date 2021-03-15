@@ -17,10 +17,10 @@ export const ItemCount = ({ initial, stock, onAdd }) => {
     }
 
     return (
-        <div className="cart-action">
-            <button className="btn border" onClick={handleSubstract}>-</button>
+        <div className="cart-action border">
+            <button className="btn" onClick={handleSubstract}>-</button>
             <input type="number" min="0" max={stock} className="text-center" value={counter} />
-            <button className="btn border" onClick={handleAdd}>+</button>
+            <button className="btn" onClick={handleAdd}>+</button>
         </div >
     )
 }

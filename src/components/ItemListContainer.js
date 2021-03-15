@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { ItemCount } from './ItemCount'
+import add_shopping_cart from '../assets/icons/add-shopping-cart.svg';
+ 
 
 
 export const ItemListContainer = () => {
@@ -12,7 +14,7 @@ export const ItemListContainer = () => {
         <div className="container">
             <div className="row mt-5">
                 <div className="col-8 bg-white">
-                    <div className="row border border-light rounded">
+                    <div className="row border rounded">
                         <div className="col-5 py-4">
 
                             <img src="https://shop.trezor.io/static/img/product/T2.jpg" alt="" style={{ maxWidth: 300 }} />
@@ -29,11 +31,12 @@ export const ItemListContainer = () => {
                     </div>
                 </div>
                 <div className="col-4">
-                    <div className="card border-secondary mb-3">
-                        <div className="card-header">Carrito</div>
-                        <div className="card-body text-secondary">
-                            <h5 className="card-title">Nombre item</h5>
-                            <p className="card-text">Cantidad:1</p>
+                    <div className="card border p-3">
+                        <img src={add_shopping_cart} className="addCart align-self-center" />
+                        <div className="card-body text-secondary text-center">
+                            <h5 className="card-title">Carrito vacio</h5>
+                            <p className="card-text">Un carrito vacio es un carrito triste :(</p>
+                            <p className="card-text">Agregale felicidad!</p>
                         </div>
                     </div>
                 </div>
