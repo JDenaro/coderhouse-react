@@ -2,19 +2,19 @@ import React, { useState } from 'react'
 import add from "../../assets/icons/add.svg"
 import remove from "../../assets/icons/remove.svg"
 
-export const ItemCount = ({ initial, stock, onAdd }) => {
+export const ItemCount = ({ initial, stock }) => {
 
     const [counter, setCounter] = useState(initial)
 
     const handleAdd = () => {
         if (counter < 5) {
-            setCounter(counter + 1)            
+            setCounter(counter + 1)
         }
     }
 
     const handleSubstract = () => {
         if (counter > 0) {
-            setCounter(counter - 1)            
+            setCounter(counter - 1)
         }
     }
 
@@ -26,7 +26,7 @@ export const ItemCount = ({ initial, stock, onAdd }) => {
                 <button className="btn" onClick={handleAdd}><img src={add} /></button>
             </div>
             <div className="d-block py-auto"><p>Stock: {stock}</p></div>
-            
+
         </div >
     )
 }
