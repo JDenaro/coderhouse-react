@@ -44,7 +44,15 @@ export const ItemListContainer = () => {
                         price: 595.80,
                         pictureUrl: "https://shop.trezor.io/static/img/product/metallic_front.png",
                         description: "An exclusive Trezor Model One device handmade from anodized aluminum, with an engraving commemorating the 5th anniversary of SatoshiLabs, the makers of Trezor."
-                    }
+                    },
+                    {
+                        id: 5,
+                        title: "Ledger Nano S",
+                        manufacturer: "Ledger",
+                        price: 58.10,
+                        pictureUrl: "https://cdn.shopify.com/s/files/1/2974/4858/files/lns-comparison_242x.png?v=1566478847",
+                        description: "The original hardware wallet. Easily start your crypto journey: buy crypto, secure your assets and manage them in one single-app."
+                    },
                 ]);
             }, 2500);
         }).then((resultado) => setItems(resultado));

@@ -5,8 +5,8 @@ export const Item = (props) => {
     return (
         <div>
             <div className="item d-flex border rounded mb-4 bg-white">
-                <div className="col-5 py-4">
-                    <img src={props.item.pictureUrl} alt="" style={{ maxWidth: 300 }} />
+                <div className="col-5 py-4 d-flex justify-content-center">
+                    <img src={props.item.pictureUrl} alt="{props.item.title}" className="img-fluid" style={{ maxWidth: 300 }} />
                 </div>
                 <div className="col-7">
                     <div className="card-block py-3 px-3">
