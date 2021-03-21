@@ -7,7 +7,7 @@ export const ItemCount = ({ initial, stock }) => {
     const [counter, setCounter] = useState(initial)
 
     const handleAdd = () => {
-        if (counter < 5) {
+        if (counter < stock) {
             setCounter(counter + 1)
         }
     }
@@ -25,7 +25,7 @@ export const ItemCount = ({ initial, stock }) => {
                 <input type="number" min="0" max={stock} className="text-center" value={counter} />
                 <button className="btn" onClick={handleAdd}><img src={add} /></button>
             </div>
-            <div className="d-block py-auto"><p>Stock: {stock}</p></div>
+            <div className="d-block py-auto"><p className="m-0">Stock: {stock}</p></div>
 
         </div >
     )
