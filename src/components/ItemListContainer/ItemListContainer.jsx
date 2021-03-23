@@ -4,6 +4,7 @@ import add_shopping_cart from '../../assets/icons/add-shopping-cart.svg';
 import { ItemList } from '../ItemList/ItemList';
 import { ItemSpinner } from '../ItemSpinner/ItemSpinner';
 import './ItemListContainer.css';
+import shop_banner from '../../assets/images/shop_banner.png'
 
 
 export const ItemListContainer = () => {
@@ -75,6 +76,7 @@ export const ItemListContainer = () => {
         <div className="container">
             <div className="row mt-3">
                 <div className="col-12 banner mb-3 rounded">
+                    <img src={shop_banner} alt="" className="img-fluid" />
                 </div>
                 <div className="col-8">
                     <div className="row">
