@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import add_shopping_cart from '../../assets/icons/add-shopping-cart.svg';
 import { ItemList } from '../ItemList/ItemList';
 import { ItemSpinner } from '../ItemSpinner/ItemSpinner';
+import './ItemListContainer.css';
 
 
 export const ItemListContainer = () => {
@@ -20,7 +21,10 @@ export const ItemListContainer = () => {
                         price: 177.56,
                         pictureUrl: "https://shop.trezor.io/static/img/product/T2.jpg",
                         description: "The Trezor Model T is an advanced cryptocurrency hardware wallet. Store Bitcoin, passwords, tokens and other keys with confidence. Invented for your digital independence.",
-                        stock: 5
+                        stock: 5,
+                        size: "64 mm x 39 mm x 10 mm",
+                        weight: "22 g",
+                        connector: "USB-C"
                     },
                     {
                         id: 2,
@@ -56,17 +60,22 @@ export const ItemListContainer = () => {
                         price: 58.10,
                         pictureUrl: "https://cdn.shopify.com/s/files/1/2974/4858/files/lns-comparison_242x.png?v=1566478847",
                         description: "The original hardware wallet. Easily start your crypto journey: buy crypto, secure your assets and manage them in one single-app.",
-                        stock: 7
+                        stock: 7,
+                        size: "56.95 mm x 17.4 mm x 9.1 mm",
+                        weight: "16.2 g",
+                        connector: "USB Type Micro-B"
                     },
                 ]);
-            }, 2500);
+            }, 1100);
         }).then((resultado) => setItems(resultado));
     });
 
     return (
 
         <div className="container">
-            <div className="row mt-5">
+            <div className="row mt-3">
+                <div className="col-12 banner mb-3 rounded">
+                </div>
                 <div className="col-8">
                     <div className="row">
                         {
