@@ -4,8 +4,6 @@ import { ReactiveWallet } from './ReactiveWallet.jsx';
 
 
 ReactDOM.render(
-
   <ReactiveWallet />,
-
   document.getElementById('root')
 );

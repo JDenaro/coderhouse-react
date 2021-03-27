@@ -17,37 +17,37 @@ import { ItemDetailContainer } from '../ItemDetailContainer/ItemDetailContainer.
 export const NavBar = () => {
     return (
         <>
-            <Router>
-                <nav className="navbar navbar-dark bg-dark">
-                    <div className="container align-items-center">
-                        <div className="d-flex">
-                            <img src={shield} className="logo align-self-center" alt="logo" />
-                            <a className="navbar-brand pl-3" href="#">REACTIVE WALLETS</a>
-                        </div>
-                        <div>
-                            <ul className="nav">
-                                <li className="nav-item">
-                                    <NavLink to="/home" activeClassName="active" className="nav-link">
-                                        Home
-                                    </NavLink>
-                                </li>
-                                <li className="nav-item">
-                                    <Link to="/shop">
-                                        <a className="nav-link">Shop</a>
-                                    </Link>
-                                </li>
-                                <li className="nav-item">
-                                    <Link to="/contact">
-                                        <a className="nav-link">Contact</a>
-                                    </Link>
-                                </li>
-                                <CartWidget />
-                            </ul>
-                        </div>
+            {/* <Router> */}
+            <nav className="navbar navbar-dark bg-dark">
+                <div className="container align-items-center">
+                    <div className="d-flex">
+                        <img src={shield} className="logo align-self-center" alt="logo" />
+                        <a className="navbar-brand pl-3" href="#">REACTIVE WALLETS</a>
                     </div>
-                </nav>
-                <Switch>
-                    <Route path="/shop/items/:id">
+                    <div>
+                        <ul className="nav">
+                            <li className="nav-item">
+                                <NavLink to="/home" activeClassName="active">
+                                    <a className="nav-link">Home</a>
+                                </NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink to="/shop">
+                                    <a className="nav-link">Shop</a>
+                                </NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink to="/contact">
+                                    <a className="nav-link">Contact</a>
+                                </NavLink>
+                            </li>
+                            <CartWidget />
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            {/* <Switch>
+                    <Route path="/shop/item/:id">
                         <ItemDetailContainer />
                     </Route>
                     <Route path="/contact">
@@ -63,7 +63,7 @@ export const NavBar = () => {
                         <Home />
                     </Route>
                 </Switch>
-            </Router>
+            </Router> */}
 
         </>
     )

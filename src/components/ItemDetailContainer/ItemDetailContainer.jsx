@@ -22,6 +22,7 @@ export const ItemDetailContainer = () => {
                         stock: 5,
                         size: "64 mm x 39 mm x 10 mm",
                         weight: "22 g",
+                        category: "Hardware Wallet",
                         connector: "USB-C"
                     },
                     {
@@ -34,6 +35,7 @@ export const ItemDetailContainer = () => {
                         stock: 4,
                         size: "60mm x 30mm x 6mm",
                         weight: "12 g",
+                        category: "Hardware Wallet",
                         connector: "Micro USB"
                     },
                     {
@@ -46,6 +48,7 @@ export const ItemDetailContainer = () => {
                         stock: 6,
                         size: "60mm x 30mm x 6mm",
                         weight: "12 g",
+                        category: "Hardware Wallet",
                         connector: "Micro USB"
                     },
                     {
@@ -58,6 +61,7 @@ export const ItemDetailContainer = () => {
                         stock: 3,
                         size: "60mm x 30mm x 6mm",
                         weight: "18 g",
+                        category: "Hardware Wallet",
                         connector: "Micro USB"
                     },
                     {
@@ -70,6 +74,7 @@ export const ItemDetailContainer = () => {
                         stock: 7,
                         size: "56.95 mm x 17.4 mm x 9.1 mm",
                         weight: "16.2 g",
+                        category: "Hardware Wallet",
                         connector: "USB Type Micro-B"
                     },
                 ]);

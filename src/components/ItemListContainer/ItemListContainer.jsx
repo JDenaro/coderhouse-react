@@ -17,7 +17,7 @@ export const ItemListContainer = () => {
                 resolve([
                     {
                         id: 1,
-                        title: "Trezor Model T",
+                        title: "Model T",
                         manufacturer: "Trezor",
                         price: 177.56,
                         pictureUrl: "https://shop.trezor.io/static/img/product/T2.jpg",
@@ -25,38 +25,51 @@ export const ItemListContainer = () => {
                         stock: 5,
                         size: "64 mm x 39 mm x 10 mm",
                         weight: "22 g",
+                        category: "Hardware Wallet",
                         connector: "USB-C"
                     },
                     {
                         id: 2,
-                        title: "Trezor One Black",
+                        title: "One Black",
                         manufacturer: "Trezor",
                         price: 58.10,
                         pictureUrl: "https://shop.trezor.io/static/img/product/T1.png",
                         description: "The Trezor Model One is the most secure hardware wallet choice for everyone, whether you're new to Bitcoin or already an expert. Get yours today!",
-                        stock: 4
+                        stock: 4,
+                        size: "60mm x 30mm x 6mm",
+                        weight: "12 g",
+                        category: "Hardware Wallet",
+                        connector: "Micro USB"
                     },
                     {
                         id: 3,
-                        title: "Trezor One White",
+                        title: "One White",
                         manufacturer: "Trezor",
                         price: 58.10,
                         pictureUrl: "https://shop.trezor.io/static/img/product/T1_white.png",
                         description: "The Trezor Model One is the most secure hardware wallet choice for everyone, whether you're new to Bitcoin or already an expert. Get yours today!",
-                        stock: 6
+                        stock: 6,
+                        size: "60mm x 30mm x 6mm",
+                        weight: "12 g",
+                        category: "Hardware Wallet",
+                        connector: "Micro USB"
                     },
                     {
                         id: 4,
-                        title: "Trezor One Metallic",
+                        title: "One Metallic",
                         manufacturer: "Trezor",
                         price: 595.80,
                         pictureUrl: "https://shop.trezor.io/static/img/product/metallic_front.png",
                         description: "An exclusive Trezor Model One device handmade from anodized aluminum, with an engraving commemorating the 5th anniversary of SatoshiLabs, the makers of Trezor.",
-                        stock: 3
+                        stock: 3,
+                        size: "60mm x 30mm x 6mm",
+                        weight: "18 g",
+                        category: "Hardware Wallet",
+                        connector: "Micro USB"
                     },
                     {
                         id: 5,
-                        title: "Ledger Nano S",
+                        title: "Nano S",
                         manufacturer: "Ledger",
                         price: 58.10,
                         pictureUrl: "https://cdn.shopify.com/s/files/1/2974/4858/files/lns-comparison_242x.png?v=1566478847",
@@ -64,6 +77,7 @@ export const ItemListContainer = () => {
                         stock: 7,
                         size: "56.95 mm x 17.4 mm x 9.1 mm",
                         weight: "16.2 g",
+                        category: "Hardware Wallet",
                         connector: "USB Type Micro-B"
                     },
                 ]);
@@ -90,9 +104,9 @@ export const ItemListContainer = () => {
                     <div className="card border p-3">
                         <img src={add_shopping_cart} className="addCart align-self-center" />
                         <div className="card-body text-secondary text-center">
-                            <h5 className="card-title">Carrito vacio</h5>
-                            <p className="card-text">Un carrito vacio es un carrito triste :(</p>
-                            <p className="card-text">Agregale felicidad!</p>
+                            <h5 className="card-title">Cart empty</h5>
+                            <p className="card-text">An empty cart is a sad cart :(</p>
+                            <p className="card-text">Add some happiness!</p>
                         </div>
                     </div>
                 </div>

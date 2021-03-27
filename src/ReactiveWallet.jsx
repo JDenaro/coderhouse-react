@@ -10,11 +10,13 @@ import { Contact } from './components/Contact/Contact';
 import { Home } from './components/Home/Home';
 import { ItemListContainer } from './components/ItemListContainer/ItemListContainer'
 import { NavBar } from './components/NavBar/NavBar';
+import { RouterApp } from './routes/RouterApp';
 
 export const ReactiveWallet = () => {
   return (
     <>
-      <NavBar />
+      {/* <NavBar /> */}
+      <RouterApp />
     </>
     // <>
     //   <NavBar />
