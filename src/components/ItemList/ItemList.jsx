@@ -40,22 +40,29 @@ export const ItemList = (props) => {
     return (
         <>
             <div className="d-flex justify-content-center pb-3 w-100">
-                <button className="menu-filter mx-2 btn btn-success">
-                    <Link to="/shop/category/all">All</Link>
-                </button>
-                <button className="menu-filter mx-2 btn btn-success">
-                    <Link to="/shop/category/wallets">Hardware Wallets</Link>
-                </button>
-                <button className="menu-filter mx-2 btn btn-success">
-                    <Link to="/shop/category/accessories">Accesories</Link>
-                </button>
+                <Link to="/shop/category/all">
+                    <button className="menu-filter mx-2 btn btn-success">
+                        All
+                    </button>
+                </Link>
+                <Link to="/shop/category/wallets">
+                    <button className="menu-filter mx-2 btn btn-success">
+                        Hardware Wallets
+                    </button>
+                </Link>
+                <Link to="/shop/category/accessories">
+                    <button className="menu-filter mx-2 btn btn-success">
+                        Accesories
+                    </button>
+                </Link>
             </div>
             {
 
                 catItems.map(item => (
                     <Item key={item.id} item={item} category={category} />
 
-                ))}
+                ))
+            }
 
 
 
