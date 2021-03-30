@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { ItemCount } from '../ItemCount/ItemCount'
 import './Item.css';
 export const Item = (props) => {
 
@@ -26,7 +25,7 @@ export const Item = (props) => {
                     </div>
 
                     <p className="card-text">{props.item.description}</p>
-                    {<ItemCount initial={1} stock={props.item.stock} />}
+
                 </div>
             </div>
         </div>
