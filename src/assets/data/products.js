@@ -53,7 +53,7 @@ export const products = [
     },
     {
         id: 5,
-        title: "Ledger Nano S",
+        title: "Nano S",
         manufacturer: "Ledger",
         price: 58.10,
         pictureUrl: "https://cdn.shopify.com/s/files/1/2974/4858/files/lns-comparison_242x.png?v=1566478847",
@@ -66,6 +66,19 @@ export const products = [
     },
     {
         id: 6,
+        title: "Nano x",
+        manufacturer: "Ledger",
+        price: 138.59,
+        pictureUrl: "https://cdn.shopify.com/s/files/1/2974/4858/products/ledger-nano-x-stand-up_grande_7a016731-824a-4d00-acec-40acfdfed9dc.png?v=1573828954",
+        description: "The next level hardware wallet. Buy & Securely manage your crypto in one single-app, anywhere you go. Become the only one in charge of your assets.",
+        stock: 7,
+        size: "72 mm x 18.6 mm x 11.75 mm",
+        weight: "34 g",
+        category: "wallets",
+        connector: "USB Type-C"
+    },
+    {
+        id: 7,
         title: "Extended USB-C Cable (Model T)",
         manufacturer: "Trezor",
         price: 5.88,
@@ -76,7 +89,7 @@ export const products = [
 
     },
     {
-        id: 7,
+        id: 8,
         title: "USB-C-USB-C Cable (Model T)",
         manufacturer: "Trezor",
         price: 5.88,

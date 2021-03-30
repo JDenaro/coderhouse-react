@@ -12,7 +12,7 @@ export const Item = (props) => {
         <div className="item d-flex border rounded mb-4 bg-white animate__animated animate__fadeIn">
             <div className="col-5 py-4 d-flex justify-content-center">
                 <Link to={`/shop/item/${props.item.id}`}>
-                    <img src={props.item.pictureUrl} alt="{props.item.title}" className="img-fluid" style={{ maxWidth: 300 }} />
+                    <img src={props.item.pictureUrl} alt="{props.item.title}" className="img-fluid" style={{ maxWidth: 300, maxHeight: 300 }} />
                 </Link>
             </div>
             <div className="col-7">

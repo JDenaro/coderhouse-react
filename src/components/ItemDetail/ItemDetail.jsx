@@ -14,16 +14,16 @@ export const ItemDetail = ({ items: { id, title, manufacturer, price, pictureUrl
                     </div>
                     <div className="col-7">
                         <div className="card-block py-3 px-3">
-                            <h4 className="card-title mb-3">{title}</h4>
+                            <h4 className="card-title mb-3">{manufacturer} {title}</h4>
                             <div className="d-flex justify-content-between align-items-center mb-3">
                                 <p className="m-0">Price: {price} USD</p>
                             </div>
                             <p className="card-text">{description}</p>
-
                             <p className="card-text">Manufacturer: {manufacturer}</p>
-                            <p className="card-text">Size: {size}</p>
-                            <p className="card-text">Weight: {weight}</p>
-                            <p className="card-text">Connector: {connector}</p>
+                            {typeof size !== 'undefined' && <p className="card-text">Size: {size}</p>}
+                            {typeof weight !== 'undefined' && <p className="card-text">Weight: {weight}</p>}
+                            {typeof connector !== 'undefined' && <p className="card-text">Connector: {connector}</p>}
+
 
                             <button className="btn btn-success px-4 py-2" onClick={() => { history.goBack(); }}>Go back</button>
                         </div>
