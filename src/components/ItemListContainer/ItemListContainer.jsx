@@ -5,6 +5,8 @@ import { ItemList } from '../ItemList/ItemList';
 import { ItemSpinner } from '../ItemSpinner/ItemSpinner';
 import './ItemListContainer.css';
 import shop_banner from '../../assets/images/shop_banner.png'
+import { products } from '../../assets/data/products';
+import { Link } from 'react-router-dom';
 
 
 export const ItemListContainer = () => {
@@ -14,73 +16,7 @@ export const ItemListContainer = () => {
     useEffect(() => {
         new Promise((resolve, reject) => {
             setTimeout(() => {
-                resolve([
-                    {
-                        id: 1,
-                        title: "Model T",
-                        manufacturer: "Trezor",
-                        price: 177.56,
-                        pictureUrl: "https://shop.trezor.io/static/img/product/T2.jpg",
-                        description: "The Trezor Model T is an advanced cryptocurrency hardware wallet. Store Bitcoin, passwords, tokens and other keys with confidence. Invented for your digital independence.",
-                        stock: 5,
-                        size: "64 mm x 39 mm x 10 mm",
-                        weight: "22 g",
-                        category: "Hardware Wallet",
-                        connector: "USB-C"
-                    },
-                    {
-                        id: 2,
-                        title: "One Black",
-                        manufacturer: "Trezor",
-                        price: 58.10,
-                        pictureUrl: "https://shop.trezor.io/static/img/product/T1.png",
-                        description: "The Trezor Model One is the most secure hardware wallet choice for everyone, whether you're new to Bitcoin or already an expert. Get yours today!",
-                        stock: 4,
-                        size: "60mm x 30mm x 6mm",
-                        weight: "12 g",
-                        category: "Hardware Wallet",
-                        connector: "Micro USB"
-                    },
-                    {
-                        id: 3,
-                        title: "One White",
-                        manufacturer: "Trezor",
-                        price: 58.10,
-                        pictureUrl: "https://shop.trezor.io/static/img/product/T1_white.png",
-                        description: "The Trezor Model One is the most secure hardware wallet choice for everyone, whether you're new to Bitcoin or already an expert. Get yours today!",
-                        stock: 6,
-                        size: "60mm x 30mm x 6mm",
-                        weight: "12 g",
-                        category: "Hardware Wallet",
-                        connector: "Micro USB"
-                    },
-                    {
-                        id: 4,
-                        title: "One Metallic",
-                        manufacturer: "Trezor",
-                        price: 595.80,
-                        pictureUrl: "https://shop.trezor.io/static/img/product/metallic_front.png",
-                        description: "An exclusive Trezor Model One device handmade from anodized aluminum, with an engraving commemorating the 5th anniversary of SatoshiLabs, the makers of Trezor.",
-                        stock: 3,
-                        size: "60mm x 30mm x 6mm",
-                        weight: "18 g",
-                        category: "Hardware Wallet",
-                        connector: "Micro USB"
-                    },
-                    {
-                        id: 5,
-                        title: "Nano S",
-                        manufacturer: "Ledger",
-                        price: 58.10,
-                        pictureUrl: "https://cdn.shopify.com/s/files/1/2974/4858/files/lns-comparison_242x.png?v=1566478847",
-                        description: "The original hardware wallet. Easily start your crypto journey: buy crypto, secure your assets and manage them in one single-app.",
-                        stock: 7,
-                        size: "56.95 mm x 17.4 mm x 9.1 mm",
-                        weight: "16.2 g",
-                        category: "Hardware Wallet",
-                        connector: "USB Type Micro-B"
-                    },
-                ]);
+                resolve(products);
             }, 1100);
         }).then((resultado) => setItems(resultado));
     });

@@ -3,9 +3,9 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
+    Redirect,
 } from "react-router-dom";
 import { Contact } from '../components/Contact/Contact';
-import { Home } from '../components/Home/Home';
 import { ItemDetailContainer } from '../components/ItemDetailContainer/ItemDetailContainer';
 import { ItemListContainer } from '../components/ItemListContainer/ItemListContainer';
 import { NavBar } from '../components/NavBar/NavBar'
@@ -18,6 +18,9 @@ export const RouterApp = () => {
                 <Route path="/shop/item/:id">
                     <ItemDetailContainer />
                 </Route>
+                <Route path="/shop/category/:cat">
+                    <ItemListContainer />
+                </Route>
                 <Route path="/contact">
                     <Contact />
                 </Route>
@@ -25,12 +28,13 @@ export const RouterApp = () => {
                     <ItemListContainer />
                 </Route>
                 <Route path="/home">
-                    <Home />
+                    <ItemListContainer />
                 </Route>
                 <Route path="/">
-                    <Home />
+                    <ItemListContainer />
                 </Route>
             </Switch>
+            <Redirect to='/' />
         </Router>
     )
 }

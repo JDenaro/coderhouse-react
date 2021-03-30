@@ -16,7 +16,7 @@ export const Item = (props) => {
                 </Link>
             </div>
             <div className="col-7">
-                <div className="card-block py-3 px-3">
+                <div className="card-block py-3 pr-3">
                     <Link to={`/shop/item/${props.item.id}`}>
                         <h4 className="card-title mb-3">{props.item.manufacturer} <span>{props.item.title}</span></h4>
                     </Link>

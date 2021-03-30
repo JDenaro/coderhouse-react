@@ -9,7 +9,7 @@ export const products = [
         stock: 5,
         size: "64 mm x 39 mm x 10 mm",
         weight: "22 g",
-        category: "Hardware Wallet",
+        category: "wallets",
         connector: "USB-C"
     },
     {
@@ -22,7 +22,7 @@ export const products = [
         stock: 4,
         size: "60mm x 30mm x 6mm",
         weight: "12 g",
-        category: "Hardware Wallet",
+        category: "wallets",
         connector: "Micro USB"
     },
     {
@@ -35,7 +35,7 @@ export const products = [
         stock: 6,
         size: "60mm x 30mm x 6mm",
         weight: "12 g",
-        category: "Hardware Wallet",
+        category: "wallets",
         connector: "Micro USB"
     },
     {
@@ -48,7 +48,7 @@ export const products = [
         stock: 3,
         size: "60mm x 30mm x 6mm",
         weight: "18 g",
-        category: "Hardware Wallet",
+        category: "wallets",
         connector: "Micro USB"
     },
     {
@@ -61,7 +61,29 @@ export const products = [
         stock: 7,
         size: "56.95 mm x 17.4 mm x 9.1 mm",
         weight: "16.2 g",
-        category: "Hardware Wallet",
+        category: "wallets",
         connector: "USB Type Micro-B"
+    },
+    {
+        id: 6,
+        title: "Extended USB-C Cable (Model T)",
+        manufacturer: "Trezor",
+        price: 5.88,
+        pictureUrl: "https://shop.trezor.io/static/img/cables/usb_c.jpg",
+        description: "Extra long Type-A to Type-C cable for convenient connection of Trezor to a computer. 1.8 m. 70.8 inch.",
+        stock: 12,
+        category: "accessories",
+
+    },
+    {
+        id: 7,
+        title: "USB-C-USB-C Cable (Model T)",
+        manufacturer: "Trezor",
+        price: 5.88,
+        pictureUrl: "https://shop.trezor.io/static/img/cables/c_c.jpg",
+        description: "USB Type-C to USB Type-C cable. Connect your Trezor Model T to an Android phone and enjoy mobile access to your wallets. Recommended as a backup way to manage your funds when you don’t have access to your computer.",
+        stock: 12,
+        category: "accessories",
+
     },
 ]

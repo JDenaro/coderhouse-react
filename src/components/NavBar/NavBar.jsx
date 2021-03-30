@@ -20,9 +20,12 @@ export const NavBar = () => {
             {/* <Router> */}
             <nav className="navbar navbar-dark bg-dark">
                 <div className="container align-items-center">
-                    <div className="d-flex">
-                        <img src={shield} className="logo align-self-center" alt="logo" />
-                        <a className="navbar-brand pl-3" href="#">REACTIVE WALLETS</a>
+                    <div className="d-flex align-items-center">
+                        <NavLink to="/home" activeClassName="active">
+                            <img src={shield} className="logo align-self-center" alt="logo" />
+                            <a className="navbar-brand pl-3" href="#">REACTIVE WALLETS</a>
+                        </NavLink>
+
                     </div>
                     <div>
                         <ul className="nav">
