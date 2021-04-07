@@ -5,6 +5,7 @@ import {
     Route,
     Redirect,
 } from "react-router-dom";
+import { Cart } from '../components/Cart/Cart';
 import { Contact } from '../components/Contact/Contact';
 import { ItemDetailContainer } from '../components/ItemDetailContainer/ItemDetailContainer';
 import { ItemListContainer } from '../components/ItemListContainer/ItemListContainer';
@@ -20,6 +21,9 @@ export const RouterApp = () => {
                 </Route>
                 <Route path="/shop/category/:cat">
                     <ItemListContainer />
+                </Route>
+                <Route path="/cart">
+                    <Cart />
                 </Route>
                 <Route path="/contact">
                     <Contact />

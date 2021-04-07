@@ -20,7 +20,9 @@ export const Item = (props) => {
                         <h4 className="card-title mb-3">{props.item.manufacturer} <span>{props.item.title}</span></h4>
                     </Link>
                     <div className="d-flex justify-content-between align-items-center mb-3">
-                        <button className="btn btn-success px-4 py-2" onClick={onAdd}>Add to cart</button>
+                        <Link to={`/shop/item/${props.item.id}`}>
+                            <button className="btn btn-success px-4 py-2" onClick={onAdd}>Add to cart</button>
+                        </Link>
                         <p className="m-0">{props.item.price} USD</p>
                     </div>
 

@@ -44,7 +44,10 @@ export const NavBar = () => {
                                     <a className="nav-link">Contact</a>
                                 </NavLink>
                             </li>
-                            <CartWidget />
+                            <NavLink to="/cart">
+                                <CartWidget />
+                            </NavLink>
+
                         </ul>
                     </div>
                 </div>
