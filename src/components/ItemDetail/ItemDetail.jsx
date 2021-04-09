@@ -7,7 +7,6 @@ export const ItemDetail = ({ items: { id, title, manufacturer, price, pictureUrl
 
     return (
         <>
-
             <div>
                 <div className="item d-flex border rounded mb-4 bg-white">
                     <div className="col-5 py-4 d-flex justify-content-center">
@@ -25,7 +24,7 @@ export const ItemDetail = ({ items: { id, title, manufacturer, price, pictureUrl
                             {typeof weight !== 'undefined' && <p className="card-text">Weight: {weight}</p>}
                             {typeof connector !== 'undefined' && <p className="card-text">Connector: {connector}</p>}
 
-                            {<ItemCount initial={1} stock={stock} />}
+                            {<ItemCount initial={1} stock={stock} id={id} />}
 
                             <button className="btn btn-success px-4 py-2 mt-3 ml-2" onClick={() => { history.goBack(); }}>Go back</button>
                         </div>

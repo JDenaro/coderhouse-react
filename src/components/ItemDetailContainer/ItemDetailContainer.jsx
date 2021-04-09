@@ -7,7 +7,7 @@ import { ItemSpinner } from '../ItemSpinner/ItemSpinner';
 export const ItemDetailContainer = () => {
 
     const { id } = useParams()
-    console.log(id)
+    // console.log(id)
     const [items, setItems] = useState([]);
     useEffect(() => {
         new Promise((resolve, reject) => {

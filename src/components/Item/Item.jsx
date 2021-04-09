@@ -4,7 +4,7 @@ import './Item.css';
 export const Item = (props) => {
 
     const onAdd = () => {
-        console.log(`Adding ${props.item.title} to your cart`)
+        // console.log(`Adding ${props.item.title} to your cart`)
     }
 
     return (

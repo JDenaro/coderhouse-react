@@ -1,9 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import add from "../../assets/icons/add.svg"
 import remove from "../../assets/icons/remove.svg"
+import CartContext from "../../context/CartContext"
 
-export const ItemCount = ({ initial, stock }) => {
+export const ItemCount = ({ initial, stock, id }) => {
+
+    const context = useContext(CartContext)
 
     const [counter, setCounter] = useState(initial)
 
@@ -24,18 +27,19 @@ export const ItemCount = ({ initial, stock }) => {
     }
 
     const onAdd = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         if (counter != 0) {
             setFinish(true);
 
         } else {
             alert('Cantidad no puede ser 0')
         }
-
     }
+
 
     return (
         <>
+            {console.log("el context es:", context)}
             <div className="d-flex justify-content-between align-items-center">
                 <div className="border rounded">
                     <button className="btn" onClick={handleSubstract}><img src={remove} /></button>
@@ -44,7 +48,7 @@ export const ItemCount = ({ initial, stock }) => {
                 </div>
                 <div className="d-block py-auto"><p className="m-0">Stock: {stock}</p></div>
             </div >
-            <button className={`btn btn-success px-4 py-2 mt-3 mx-1 ${counter > 0 ? "" : "disabled"}`} onClick={onAdd}>Add to cart</button>
+            <button className={`btn btn-success px-4 py-2 mt-3 mx-1 ${counter > 0 ? "" : "disabled"}`} onClick={() => { context.addItem(id, counter); onAdd() }}>Add to cart</button>
             <NavLink to="/cart">
                 <button className={`btn btn-success px-4 py-2 mt-3 mx-1 ${!finish ? "d-none" : ""}`}>Finish purchase</button>
             </NavLink>
