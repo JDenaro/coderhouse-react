@@ -11,7 +11,7 @@ export const ReactiveWallet = () => {
     const repeated = cart.some(item => item.id === id)
     console.log('repeated:', repeated)
     repeated
-      ? setCart(cart.map(item => { if (item.id === id) { item.id = item.id + qty } }))
+      ? setCart(cart.map(item => item.id === id && { ...item, qty: (item.qty + qty) }))
       : setCart([...cart, { id, qty }])
   }
 
