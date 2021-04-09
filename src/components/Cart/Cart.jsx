@@ -17,11 +17,15 @@ export const Cart = () => {
                                 <h5 className="card-title">Cart empty</h5>
                                 <p className="card-text">An empty cart is a sad cart</p>
                                 <p className="card-text">Add some happiness!</p>
-                                {context.cart.map((item) => {
-                                    <p>item.id</p>
-                                    console.log('item id:', item.id)
-                                    console.log('item qty:', item.qty)
+                                {context.cart.map(item => {
+                                    <div>
+                                        <p>{item.id}</p>
+                                        <p>{item.qty}</p>
+                                    </div>
+                                    console.log(item.id, item.qty)
                                 })}
+                                <button className={`btn btn-success px-4 py-2 mt-3 mx-1`} onClick={() => context.clearCart()}>Clear cart</button>
+
                             </div>
                         </div>
                     </div>

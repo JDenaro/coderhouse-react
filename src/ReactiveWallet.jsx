@@ -11,11 +11,15 @@ export const ReactiveWallet = () => {
     const repeated = cart.some(item => item.id === id)
     console.log('repeated:', repeated)
     repeated
-      ? setCart(cart.map(item => item.id === id && { ...item, qty: (item.qty + qty) }))
+      ? setCart(cart.map(item => item.id === id ? { ...item, qty: (item.qty + qty) } : item))
       : setCart([...cart, { id, qty }])
   }
 
-  const clearCart = () => setCart([])
+  const clearCart = () => {
+    console.log('Clearing cart')
+    setCart([])
+    console.log('Cart:', cart)
+  }
 
   return (
     <>
