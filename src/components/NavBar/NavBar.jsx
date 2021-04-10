@@ -1,18 +1,9 @@
 import React from 'react'
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-    NavLink
-} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./NavBar.css"
 import shield from '../../assets/icons/shield.svg';
 import { CartWidget } from '../CartWidget/CartWidget'
-import { ItemListContainer } from '../ItemListContainer/ItemListContainer';
-import { Contact } from '../Contact/Contact';
-import { Home } from '../Home/Home';
-import { ItemDetailContainer } from '../ItemDetailContainer/ItemDetailContainer.jsx';
+
 
 export const NavBar = () => {
     return (

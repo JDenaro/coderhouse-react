@@ -6,13 +6,20 @@ export const ReactiveWallet = () => {
 
   const [cart, setCart] = useState([])
 
-  const addItem = (id, qty) => {
+  const [cartItemCount, setCartItemCount] = useState(0)
+
+  const addItem = (id, qty, price, manufacturer, title) => {
     console.log('se recibe item id:', id, ' con cantidad: ', qty)
     const repeated = cart.some(item => item.id === id)
     console.log('repeated:', repeated)
     repeated
       ? setCart(cart.map(item => item.id === id ? { ...item, qty: (item.qty + qty) } : item))
-      : setCart([...cart, { id, qty }])
+      : setCart([...cart, { id, qty, price, manufacturer, title }])
+  }
+
+  const removeItem = (itemId) => {
+    console.log(`se recibio id ${itemId} para eliminar`)
+    setCart(cart.filter(item => item.id != itemId))
   }
 
   const clearCart = () => {
@@ -23,7 +30,7 @@ export const ReactiveWallet = () => {
 
   return (
     <>
-      <CartContext.Provider value={{ cart: cart, addItem: addItem, clearCart: clearCart }}>
+      <CartContext.Provider value={{ cart, addItem, clearCart, removeItem, cartItemCount }}>
         <RouterApp />
       </CartContext.Provider>
     </>

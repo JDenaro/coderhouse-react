@@ -4,7 +4,7 @@ import add from "../../assets/icons/add.svg"
 import remove from "../../assets/icons/remove.svg"
 import CartContext from "../../context/CartContext"
 
-export const ItemCount = ({ initial, stock, id }) => {
+export const ItemCount = ({ initial, stock, id, price, manufacturer, title }) => {
 
     const context = useContext(CartContext)
 
@@ -48,7 +48,7 @@ export const ItemCount = ({ initial, stock, id }) => {
                 </div>
                 <div className="d-block py-auto"><p className="m-0">Stock: {stock}</p></div>
             </div >
-            <button className={`btn btn-success px-4 py-2 mt-3 mx-1 ${counter > 0 ? "" : "disabled"}`} onClick={() => { context.addItem(id, counter); onAdd() }}>Add to cart</button>
+            <button className={`btn btn-success px-4 py-2 mt-3 mx-1 ${counter > 0 ? "" : "disabled"}`} onClick={() => { context.addItem(id, counter, price, manufacturer, title); onAdd() }}>Add to cart</button>
             <NavLink to="/cart">
                 <button className={`btn btn-success px-4 py-2 mt-3 mx-1 ${!finish ? "d-none" : ""}`}>Finish purchase</button>
             </NavLink>

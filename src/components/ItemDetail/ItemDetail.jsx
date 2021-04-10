@@ -24,7 +24,7 @@ export const ItemDetail = ({ items: { id, title, manufacturer, price, pictureUrl
                             {typeof weight !== 'undefined' && <p className="card-text">Weight: {weight}</p>}
                             {typeof connector !== 'undefined' && <p className="card-text">Connector: {connector}</p>}
 
-                            {<ItemCount initial={1} stock={stock} id={id} />}
+                            {<ItemCount initial={1} stock={stock} id={id} price={price} manufacturer={manufacturer} title={title} />}
 
                             <button className="btn btn-success px-4 py-2 mt-3 ml-2" onClick={() => { history.goBack(); }}>Go back</button>
                         </div>
