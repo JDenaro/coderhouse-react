@@ -97,6 +97,5 @@ export const products = [
         description: "USB Type-C to USB Type-C cable. Connect your Trezor Model T to an Android phone and enjoy mobile access to your wallets. Recommended as a backup way to manage your funds when you don’t have access to your computer.",
         stock: 12,
         category: "accessories",
-
     },
 ]
