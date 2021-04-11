@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { RouterApp } from './routes/RouterApp';
 import CartContext from './context/CartContext'
+import { getFirestore } from './configs/firebase';
 
 export const ReactiveWallet = () => {
 
@@ -27,6 +28,23 @@ export const ReactiveWallet = () => {
     setCart([])
     console.log('Cart:', cart)
   }
+
+  // firebase
+  useEffect(() => {
+    const db = getFirestore();
+    const categoriasCollection = db.collection("items");
+
+    categoriasCollection
+      .get()
+      .then((resp) => {
+        if (resp.size === 0) {
+          console.log("Sin datos");
+        }
+
+        resp.docs.map((c) => console.log({ id: c.id, ...c.data() }));
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
   return (
     <>
