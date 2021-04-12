@@ -29,23 +29,6 @@ export const ReactiveWallet = () => {
     console.log('Cart:', cart)
   }
 
-  // firebase
-  useEffect(() => {
-    const db = getFirestore();
-    const categoriasCollection = db.collection("items");
-
-    categoriasCollection
-      .get()
-      .then((resp) => {
-        if (resp.size === 0) {
-          console.log("Sin datos");
-        }
-
-        resp.docs.map((c) => console.log({ id: c.id, ...c.data() }));
-      })
-      .catch((error) => console.log(error));
-  }, []);
-
   return (
     <>
       <CartContext.Provider value={{ cart, addItem, clearCart, removeItem, cartItemCount }}>

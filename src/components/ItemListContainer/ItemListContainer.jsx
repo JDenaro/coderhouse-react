@@ -7,19 +7,33 @@ import './ItemListContainer.css';
 import shop_banner from '../../assets/images/shop_banner.png'
 import { products } from '../../assets/data/products';
 import { Link } from 'react-router-dom';
+import { getFirestore } from '../../configs/firebase';
 
 
 export const ItemListContainer = () => {
 
     const [items, setItems] = useState([]);
 
+    // firebase
     useEffect(() => {
-        new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(products);
-            }, 1100);
-        }).then((resultado) => setItems(resultado));
-    });
+        const db = getFirestore();
+        const categoriasCollection = db.collection("items");
+
+        categoriasCollection
+            .get()
+            .then((resp) => {
+                if (resp.size === 0) {
+                    console.log("Sin datos");
+                } else {
+                    let arr = []
+                    resp.docs.map((c) => arr.push({ id: parseInt(c.id), ...c.data() }));
+                    setItems(arr)
+                    console.log(items)
+                }
+
+            })
+            .catch((error) => console.log(error));
+    }, []);
 
     return (
 
