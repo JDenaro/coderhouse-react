@@ -68,6 +68,9 @@ export const Cart = () => {
 
                                 <h1>Total: {total.toFixed(2)}</h1>
                                 <button className={`btn btn-success px-4 py-2 mt-3 mx-1`} onClick={() => context.clearCart()}>Clear cart</button>
+                                <Link to="/cart/checkout">
+                                    <button className={`btn btn-success px-4 py-2 mt-3 mx-1`}>Checkout</button>
+                                </Link>
                             </>
 
                             :
