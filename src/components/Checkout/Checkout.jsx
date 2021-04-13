@@ -18,9 +18,9 @@ export const Checkout = () => {
         setTotal(totalAux)
     }, [context])
     return (
-        <div className="container">
-            <div className="row mt-3">
-                <div className="col-md-7">
+        <div className="container mt-5">
+            <div className="row rounded border py-3 bg-white justify-content-center">
+                <div className="col-md-8">
                     <h4 className="mb-3">Billing address</h4>
                     <form className="needs-validation" novalidate>
                         <div className="row">
@@ -101,7 +101,7 @@ export const Checkout = () => {
                 </div>
 
 
-                <div className="col-md-5 mb-4">
+                <div className="col-md-4 mb-4">
                     <h4 className="d-flex justify-content-between align-items-center mb-3">
                         <span className="text-muted">Your cart</span>
                         <span className="badge badge-secondary badge-pill">{totalItemQty}</span>

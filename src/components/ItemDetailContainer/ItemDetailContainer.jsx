@@ -9,18 +9,19 @@ export const ItemDetailContainer = () => {
 
     const { id } = useParams()
     const [db, setDb] = useState(getFirestore())
-    const [itemDetailed, setItemDetailed] = useState([]);
     const [itemDetailedById, setItemDetailedById] = useState([]);
+    const [itemDetailedById2, setItemDetailedById2] = useState([]);
+    const [itemDetailed, setItemDetailed] = useState([]);
+
 
     // firebase
     useEffect(() => {
         const productos = db.collection("items").doc(id);
 
         productos.get().then((res) => {
-            console.log(res.data());
-            setItemDetailedById(res.data());
+            setItemDetailedById({ id, ...res.data() });
+            const item = res.data();
         });
-
     }, [id]);
 
     // firebase
@@ -42,10 +43,7 @@ export const ItemDetailContainer = () => {
     // }, [id]);
 
     return (
-        <div className="container mt-5">
-            {
-                itemDetailedById.length < 1 ? <ItemSpinner /> : <ItemDetail items={itemDetailedById} />
-            }
-        </div>
+        itemDetailedById.length < 1 ? <ItemSpinner /> : <ItemDetail items={itemDetailedById} />
+
     )
 }
