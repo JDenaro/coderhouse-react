@@ -8,44 +8,43 @@ import { ItemSpinner } from '../ItemSpinner/ItemSpinner';
 export const ItemDetailContainer = () => {
 
     const { id } = useParams()
-    // console.log(id)
-
-    // const [items, setItems] = useState([]);
-    // useEffect(() => {
-    //     new Promise((resolve, reject) => {
-    //         setTimeout(() => {
-    //             resolve(products);
-    //         }, 1100);
-    //     }).then((resultado) => setItems(resultado.filter(item => item.id === parseInt(id))));
-    // }, [id]);
-
-
+    const [db, setDb] = useState(getFirestore())
     const [itemDetailed, setItemDetailed] = useState([]);
+    const [itemDetailedById, setItemDetailedById] = useState([]);
 
     // firebase
     useEffect(() => {
-        const db = getFirestore();
-        const categoriasCollection = db.collection("items");
+        const productos = db.collection("items").doc(id);
 
-        categoriasCollection
-            .get()
-            .then((resp) => {
-                if (resp.size === 0) {
-                    console.log("Sin datos");
-                } else {
-                    let arr = []
-                    resp.docs.map((c) => arr.push({ id: parseInt(c.id), ...c.data() }));
-                    setItemDetailed(arr.filter(item => item.id === parseInt(id)))
-                    console.log(itemDetailed)
-                }
-            })
-            .catch((error) => console.log(error));
+        productos.get().then((res) => {
+            console.log(res.data());
+            setItemDetailedById(res.data());
+        });
+
     }, [id]);
+
+    // firebase
+    // useEffect(() => {
+    //     const itemsCollection = db.collection("items")
+    //     itemsCollection
+    //         .get()
+    //         .then((resp) => {
+    //             if (resp.size === 0) {
+    //                 console.log("Sin datos");
+    //             } else {
+    //                 let arr = []
+    //                 resp.docs.map((c) => arr.push({ id: parseInt(c.id), ...c.data() }));
+    //                 setItemDetailed(arr.filter(item => item.id === parseInt(id)))
+    //                 console.log(itemDetailed)
+    //             }
+    //         })
+    //         .catch((error) => console.log(error));
+    // }, [id]);
 
     return (
         <div className="container mt-5">
             {
-                itemDetailed.length < 1 ? <ItemSpinner /> : <ItemDetail items={itemDetailed[0]} />
+                itemDetailedById.length < 1 ? <ItemSpinner /> : <ItemDetail items={itemDetailedById} />
             }
         </div>
     )
