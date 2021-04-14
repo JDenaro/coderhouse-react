@@ -40,7 +40,7 @@ export const RouterApp = () => {
                     <Home />
                 </Route>
                 <Route path="/">
-                    <ItemListContainer />
+                    <Home />
                 </Route>
             </Switch>
             <Redirect to='/' />
