@@ -24,6 +24,13 @@ export const ReactiveWallet = () => {
   const removeItem = (itemId) => {
     console.log(`se recibio id ${itemId} para eliminar`)
     setCart(cart.filter(item => item.id != itemId))
+    let total = 0
+    cart.length > 0 && setCartTotal(parseInt(cart.map(item => total += item.qty * item.price)).toFixed(2))
+  }
+
+  const calculateTotal = () => {
+    let total = 0
+    cart.length > 0 && setCartTotal(parseInt(cart.map(item => total += item.qty * item.price)).toFixed(2))
   }
 
   const clearCart = () => {
@@ -32,9 +39,10 @@ export const ReactiveWallet = () => {
     console.log('Cart:', cart)
   }
 
+
   return (
     <>
-      <CartContext.Provider value={{ cart, addItem, clearCart, removeItem, cartItemCount, cartTotal, setCartTotal }}>
+      <CartContext.Provider value={{ cart, addItem, clearCart, removeItem, cartItemCount, cartTotal, setCartTotal, calculateTotal }}>
         <RouterApp />
       </CartContext.Provider>
     </>

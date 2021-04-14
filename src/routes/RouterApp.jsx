@@ -16,24 +16,30 @@ import { Home } from '../components/Home/Home'
 export const RouterApp = () => {
     return (
         <Router>
-            <NavBar />
+            {/* <NavBar /> */}
             <Switch>
                 <Route path="/shop/item/:id">
+                    <NavBar />
                     <ItemDetailContainer />
                 </Route>
                 <Route path="/shop/category/:cat">
+                    <NavBar />
                     <ItemListContainer />
                 </Route>
                 <Route path="/cart/checkout">
+                    <NavBar />
                     <Checkout />
                 </Route>
                 <Route path="/cart">
+                    <NavBar />
                     <Cart />
                 </Route>
                 <Route path="/contact">
+                    <NavBar />
                     <Contact />
                 </Route>
                 <Route path="/shop">
+                    <NavBar />
                     <ItemListContainer />
                 </Route>
                 <Route path="/home">

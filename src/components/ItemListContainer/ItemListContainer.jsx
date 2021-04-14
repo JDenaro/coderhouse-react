@@ -60,7 +60,7 @@ export const ItemListContainer = () => {
                                 <p className="card-text">Add some happiness!</p>
                             </div>
                         </div>
-                        <div data-v-05e8b5a6="" class="card payment-info background-art mt-3">
+                        {/* <div data-v-05e8b5a6="" class="card payment-info background-art mt-3">
                             <div data-v-05e8b5a6="" class="columns">
                                 <div data-v-05e8b5a6="" class="column col-8">
                                     <address data-v-05e8b5a6="">
@@ -74,7 +74,20 @@ export const ItemListContainer = () => {
                                         <div data-v-05e8b5a6="">+420 774 555 756</div>
                                         <div data-v-05e8b5a6=""><a data-v-05e8b5a6="" href="https://trezor.io/support/" title="Contact Us" target="_blank" class="link-dimmed">support@satoshilabs.com</a>
                                         </div>
-                                    </address></div></div> <div data-v-05e8b5a6="" class="columns"><div data-v-05e8b5a6="" class="column col-8"><div data-v-05e8b5a6="" class="payment-info-items"><div data-v-05e8b5a6="" class="card-icon GoPay"></div> <div data-v-05e8b5a6="" class="card-icon btc"></div></div> <div data-v-05e8b5a6="" class="learn-more-button"><a data-v-05e8b5a6="" href="/faq" title="Visit our FAQ">Learn more</a></div></div></div></div>
+                                    </address>
+                                </div>
+                            </div>
+                            <div data-v-05e8b5a6="" class="columns">
+                                <div data-v-05e8b5a6="" class="column col-8">
+                                    <div data-v-05e8b5a6="" class="payment-info-items"><
+                                        div data-v-05e8b5a6="" class="card-icon GoPay"></div>
+                                        <div data-v-05e8b5a6="" class="card-icon btc"></div>
+                                    </div> <div data-v-05e8b5a6="" class="learn-more-button">
+                                        <a data-v-05e8b5a6="" href="/faq" title="Visit our FAQ">Learn more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

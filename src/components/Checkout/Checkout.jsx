@@ -5,12 +5,15 @@ import firebase from "firebase/app";
 
 import "firebase/firestore";
 import { getFirebase, getFirestore } from '../../configs/firebase';
+import { useHistory } from 'react-router-dom';
 
 export const Checkout = () => {
     const context = useContext(CartContext)
     const [total, setTotal] = useState(0)
     const [lastId, setLastId] = useState();
     const [db, setDb] = useState(getFirestore())
+
+    const history = useHistory();
 
     let totalItemQty = 0
     context.cart.map(item => totalItemQty += item.qty)
@@ -27,6 +30,7 @@ export const Checkout = () => {
 
     function createOrder(e) {
         e.preventDefault();
+        disableForm();
         const newOrder = {
             user: { id: 1, name: document.getElementById("firstName").value, lastName: document.getElementById("lastName").value, email: document.getElementById("email").value },
             products: [...context.cart],
@@ -37,12 +41,32 @@ export const Checkout = () => {
         const orders = db.collection("orders");
 
         orders.add(newOrder).then((resp) => {
+            disableForm();
             console.log(resp);
             console.log(resp.id);
             setLastId(resp.id);
-            alert(`Your Order ID: ${resp.id}`)
+            alert(`Your Order ID is: ${resp.id}. Thanks for your purchase!`);
+            document.getElementById("checkoutForm").reset();
+            context.clearCart();
+            enableForm();
+            history.push('/shop');
         });
+    }
 
+    function disableForm() {
+        var form = document.getElementById("checkoutForm");
+        var elements = form.elements;
+        for (var i = 0, len = elements.length; i < len; ++i) {
+            elements[i].readOnly = true;
+        }
+    }
+
+    function enableForm() {
+        var form = document.getElementById("checkoutForm");
+        var elements = form.elements;
+        for (var i = 0, len = elements.length; i < len; ++i) {
+            elements[i].readOnly = false;
+        }
     }
 
     return (
@@ -50,7 +74,7 @@ export const Checkout = () => {
             <div className="row rounded border py-3 bg-white justify-content-center">
                 <div className="col-md-8">
                     <h4 className="mb-3">Billing address</h4>
-                    <form className="needs-validation" novalidate>
+                    <form className="needs-validation" id="checkoutForm" novalidate>
                         <div className="row">
                             <div className="col-md-6 mb-3">
                                 <label for="firstName">First name</label>
@@ -111,7 +135,7 @@ export const Checkout = () => {
                             </div>
                         </div>
                         <hr className="mb-4"></hr>
-                        <button className="btn btn-primary btn-lg btn-block" type="submit" onClick={createOrder}>Buy</button>
+                        <button className="btn btn-success btn-lg btn-block" type="submit" onClick={createOrder}>Pay ${total}</button>
                     </form>
                 </div>
 
@@ -141,7 +165,7 @@ export const Checkout = () => {
                         </li>
                         <li className="list-group-item d-flex justify-content-between">
                             <span>Total (USD)</span>
-                            <strong>{total}</strong>
+                            <strong>{context.cartTotal}</strong>
                         </li>
                     </ul>
 
@@ -156,6 +180,18 @@ export const Checkout = () => {
                 </div>
             </div>
 
+
+            {/* <div className="video-content d-none">
+                <div className="glass text-center border rounded p-3 px-5 animate__animated animate__fadeIn">
+                    <h1>Congratulations!</h1>
+                    <h4 className="mb-3">Your purchase is complete!</h4>
+
+                    <p className="mb-3">Hold your crypto with maximum security</p>
+                    <Link to="/shop">
+                        <button className="btn btn-success px-4 py-2">Finish</button>
+                    </Link>
+                </div>
+            </div> */}
 
         </div>
     )
