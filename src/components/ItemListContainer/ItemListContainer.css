@@ -3,6 +3,15 @@
     text-decoration: none;
 }
 
+.cart-wrapper {
+    position: sticky;
+    top: 70px;
+}
+
+.porquillo {
+    margin-top: 53.61px;
+}
+
 /* .banner {
     background-image: url(https://blog.bitireland.ie/sites/default/files/Your%20Keys%20Your%20Bitcoin.png);
     background-position: center center;

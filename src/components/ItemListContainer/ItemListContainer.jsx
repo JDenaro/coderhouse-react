@@ -50,14 +50,31 @@ export const ItemListContainer = () => {
 
                     </div>
                 </div>
-                <div className="col-4">
-                    <div className="card border p-3">
-                        <img src={add_shopping_cart} className="addCart align-self-center" />
-                        <div className="card-body text-secondary text-center">
-                            <h5 className="card-title">Cart empty</h5>
-                            <p className="card-text">An empty cart is a sad cart :(</p>
-                            <p className="card-text">Add some happiness!</p>
+                <div className="col-4 porquillo">
+                    <div className="cart-wrapper">
+                        <div className="card border p-3 ">
+                            <img src={add_shopping_cart} className="addCart align-self-center" />
+                            <div className="card-body text-secondary text-center">
+                                <h5 className="card-title">Cart empty</h5>
+                                <p className="card-text">An empty cart is a sad cart :(</p>
+                                <p className="card-text">Add some happiness!</p>
+                            </div>
                         </div>
+                        <div data-v-05e8b5a6="" class="card payment-info background-art mt-3">
+                            <div data-v-05e8b5a6="" class="columns">
+                                <div data-v-05e8b5a6="" class="column col-8">
+                                    <address data-v-05e8b5a6="">
+                                        <div data-v-05e8b5a6="">
+                                            <strong data-v-05e8b5a6="">SatoshiLabs s.r.o.</strong>
+                                        </div>
+                                        <div data-v-05e8b5a6="">Kundratka 2359/17a</div>
+                                        <div data-v-05e8b5a6="">180 00 Prague 8</div>
+                                        <div data-v-05e8b5a6="">Czech Republic</div>
+                                        <div data-v-05e8b5a6="">Company ID: 02440032</div>
+                                        <div data-v-05e8b5a6="">+420 774 555 756</div>
+                                        <div data-v-05e8b5a6=""><a data-v-05e8b5a6="" href="https://trezor.io/support/" title="Contact Us" target="_blank" class="link-dimmed">support@satoshilabs.com</a>
+                                        </div>
+                                    </address></div></div> <div data-v-05e8b5a6="" class="columns"><div data-v-05e8b5a6="" class="column col-8"><div data-v-05e8b5a6="" class="payment-info-items"><div data-v-05e8b5a6="" class="card-icon GoPay"></div> <div data-v-05e8b5a6="" class="card-icon btc"></div></div> <div data-v-05e8b5a6="" class="learn-more-button"><a data-v-05e8b5a6="" href="/faq" title="Visit our FAQ">Learn more</a></div></div></div></div>
                     </div>
                 </div>
             </div>

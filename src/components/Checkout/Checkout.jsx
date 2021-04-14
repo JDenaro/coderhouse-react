@@ -1,9 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react';
 import CartContext from "../../context/CartContext";
 
+import firebase from "firebase/app";
+
+import "firebase/firestore";
+import { getFirebase, getFirestore } from '../../configs/firebase';
+
 export const Checkout = () => {
     const context = useContext(CartContext)
     const [total, setTotal] = useState(0)
+    const [lastId, setLastId] = useState();
+    const [db, setDb] = useState(getFirestore())
 
     let totalItemQty = 0
     context.cart.map(item => totalItemQty += item.qty)
@@ -17,6 +24,27 @@ export const Checkout = () => {
         })
         setTotal(totalAux)
     }, [context])
+
+    function createOrder(e) {
+        e.preventDefault();
+        const newOrder = {
+            user: { id: 1, name: document.getElementById("firstName").value, lastName: document.getElementById("lastName").value, email: document.getElementById("email").value },
+            products: [...context.cart],
+            createOn: firebase.firestore.Timestamp.fromDate(new Date()),
+            total: context.cartTotal,
+        };
+
+        const orders = db.collection("orders");
+
+        orders.add(newOrder).then((resp) => {
+            console.log(resp);
+            console.log(resp.id);
+            setLastId(resp.id);
+            alert(`Your Order ID: ${resp.id}`)
+        });
+
+    }
+
     return (
         <div className="container mt-5">
             <div className="row rounded border py-3 bg-white justify-content-center">
@@ -26,14 +54,14 @@ export const Checkout = () => {
                         <div className="row">
                             <div className="col-md-6 mb-3">
                                 <label for="firstName">First name</label>
-                                <input type="text" className="form-control" id="firstName" placeholder="" value="" required="" />
+                                <input type="text" className="form-control" id="firstName" placeholder="" required="" />
                                 <div className="invalid-feedback">
                                     Valid first name is required.
                                 </div>
                             </div>
                             <div className="col-md-6 mb-3">
                                 <label for="lastName">Last name</label>
-                                <input type="text" className="form-control" id="lastName" placeholder="" value="" required="" />
+                                <input type="text" className="form-control" id="lastName" placeholder="" required="" />
                                 <div className="invalid-feedback">
                                     Valid last name is required.
                                 </div>
@@ -41,27 +69,14 @@ export const Checkout = () => {
                         </div>
                         <div className="mb-3">
                             <label for="email">Email</label>
-                            <input type="email" className="form-control" id="email" placeholder="you@example.com" value="" required="" />
+                            <input type="email" className="form-control" id="email" placeholder="you@example.com" required="" />
                             <div className="invalid-feedback">
                                 Please enter a valid email address for shipping updates.
                             </div>
                         </div>
-                        <hr className="mb-4" />
+                        <hr className="mb-3" />
                         <h4 className="mb-3">Payment</h4>
-                        <div className="d-block my-3">
-                            <div className="custom-control custom-radio">
-                                <input id="credit" name="paymentMethod" type="radio" className="custom-control-input" checked="" required="" />
-                                <label className="custom-control-label" for="credit">Credit card</label>
-                            </div>
-                            <div className="custom-control custom-radio">
-                                <input id="debit" name="paymentMethod" type="radio" className="custom-control-input" required="" />
-                                <label className="custom-control-label" for="debit">Debit card</label>
-                            </div>
-                            <div className="custom-control custom-radio">
-                                <input id="paypal" name="paymentMethod" type="radio" className="custom-control-input" required="" />
-                                <label className="custom-control-label" for="paypal">PayPal</label>
-                            </div>
-                        </div>
+
                         <div className="row">
                             <div className="col-md-6 mb-3">
                                 <label for="cc-name">Name on card</label>
@@ -96,7 +111,7 @@ export const Checkout = () => {
                             </div>
                         </div>
                         <hr className="mb-4"></hr>
-                        <button className="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+                        <button className="btn btn-primary btn-lg btn-block" type="submit" onClick={createOrder}>Buy</button>
                     </form>
                 </div>
 
@@ -107,31 +122,20 @@ export const Checkout = () => {
                         <span className="badge badge-secondary badge-pill">{totalItemQty}</span>
                     </h4>
                     <ul className="list-group mb-3">
-                        <li className="list-group-item d-flex justify-content-between lh-condensed">
-                            <div>
-                                <h6 className="my-0">Product name</h6>
-                                <small className="text-muted">Brief description</small>
-                            </div>
-                            <span className="text-muted">$12</span>
-                        </li>
-                        <li className="list-group-item d-flex justify-content-between lh-condensed">
-                            <div>
-                                <h6 className="my-0">Second product</h6>
-                                <small className="text-muted">Brief description</small>
-                            </div>
-                            <span className="text-muted">$8</span>
-                        </li>
-                        <li className="list-group-item d-flex justify-content-between lh-condensed">
-                            <div>
-                                <h6 className="my-0">Third item</h6>
-                                <small className="text-muted">Brief description</small>
-                            </div>
-                            <span className="text-muted">$5</span>
-                        </li>
+
+                        {context.cart.map(item => (
+                            <li className="list-group-item d-flex justify-content-between lh-condensed">
+                                <div>
+                                    <h6 className="my-0">{item.manufacturer} {item.title}</h6>
+                                    <small className="text-muted">x {item.qty}</small>
+                                </div>
+                                <span className="text-muted">${item.price * item.qty}</span>
+                            </li>
+                        ))}
                         <li className="list-group-item d-flex justify-content-between bg-light">
                             <div className="text-success">
                                 <h6 className="my-0">Promo code</h6>
-                                <small>EXAMPLECODE</small>
+                                <small>GET10OFF</small>
                             </div>
                             <span className="text-success">-$5</span>
                         </li>
@@ -151,7 +155,6 @@ export const Checkout = () => {
                     </form>
                 </div>
             </div>
-
 
 
         </div>
