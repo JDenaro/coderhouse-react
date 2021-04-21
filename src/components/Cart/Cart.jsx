@@ -24,7 +24,7 @@ export const Cart = () => {
             <div className="container mt-5">
                 <div className="row justify-content-center">
                     <div className="col-8 card border p-3">
-                        <img src={add_shopping_cart} className="addCart align-self-center" />
+                        <img src={add_shopping_cart} className="addCart align-self-center" alt="add_shopping_cart" />
                         <div className="card-body text-secondary text-center">
 
 
@@ -67,8 +67,8 @@ export const Cart = () => {
                                         )
                                     })}
 
-                                    {/* <h1>Total: {total.toFixed(2)}</h1> */}
-                                    <h1>Total: {context.cartTotal}</h1>
+
+                                    <h1>Total: {(parseInt(context.cartTotal)).toFixed(2)}</h1>
                                     <button className={`btn btn-success px-4 py-2 mt-3 mx-1`} onClick={() => context.clearCart()}>Clear cart</button>
                                     <Link to="/cart/checkout">
                                         <button className={`btn btn-success px-4 py-2 mt-3 mx-1`}>Checkout</button>

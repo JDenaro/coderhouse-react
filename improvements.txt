@@ -1,0 +1,4 @@
+side cart not showing items
+navbar cart item count incorrect color
+incorrect image size on itemDetail
+

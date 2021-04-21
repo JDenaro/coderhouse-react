@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { RouterApp } from './routes/RouterApp';
 import CartContext from './context/CartContext'
-import { getFirestore } from './configs/firebase';
 
 export const ReactiveWallet = () => {
 
@@ -16,14 +15,14 @@ export const ReactiveWallet = () => {
     const repeated = cart.some(item => item.id === id)
     console.log('repeated:', repeated)
     repeated
-      ? setCart(cart.map(item => item.id === id ? { ...item, qty: (item.qty + qty) } : item))
+      ? setCart(cart.map(item => item.id === id ? { ...item, qty: qty } : item))
       : setCart([...cart, { id, qty, price, manufacturer, title }])
     setCartTotal(parseInt(cart.map(item => total += item.qty * item.price)).toFixed(2))
   }
 
   const removeItem = (itemId) => {
     console.log(`se recibio id ${itemId} para eliminar`)
-    setCart(cart.filter(item => item.id != itemId))
+    setCart(cart.filter(item => item.id !== itemId))
     let total = 0
     cart.length > 0 && setCartTotal(parseInt(cart.map(item => total += item.qty * item.price)).toFixed(2))
   }
