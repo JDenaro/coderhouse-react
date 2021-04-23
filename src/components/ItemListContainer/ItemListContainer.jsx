@@ -1,18 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
-import add_shopping_cart from '../../assets/icons/add-shopping-cart.svg';
+import add_shopping_cart from '../../assets/icons/add-shopping-cart.svg'
 import { ItemList } from '../ItemList/ItemList';
 import { ItemSpinner } from '../ItemSpinner/ItemSpinner';
 import './ItemListContainer.css';
 import shop_banner from '../../assets/images/shop_banner.png'
-import { products } from '../../assets/data/products';
-import { Link } from 'react-router-dom';
+
 import { getFirestore } from '../../configs/firebase';
+import CartContext from '../../context/CartContext';
 
 
 export const ItemListContainer = () => {
 
+    const context = useContext(CartContext)
     const [items, setItems] = useState([]);
+    let totalItemQty = 0
+    context.cart.map(item => totalItemQty += item.qty)
 
     // firebase
     useEffect(() => {
@@ -35,6 +38,12 @@ export const ItemListContainer = () => {
             .catch((error) => console.log(error));
     }, []);
 
+
+    useEffect(() => {
+        context.calculateTotal();
+
+    }, [context.cart])
+
     return (
 
         <div className="container">
@@ -50,45 +59,57 @@ export const ItemListContainer = () => {
 
                     </div>
                 </div>
+
                 <div className="col-4 porquillo">
                     <div className="cart-wrapper">
                         <div className="card border p-3 ">
-                            <img src={add_shopping_cart} className="addCart align-self-center" />
-                            <div className="card-body text-secondary text-center">
-                                <h5 className="card-title">Cart empty</h5>
-                                <p className="card-text">An empty cart is a sad cart :(</p>
-                                <p className="card-text">Add some happiness!</p>
-                            </div>
-                        </div>
-                        {/* <div data-v-05e8b5a6="" class="card payment-info background-art mt-3">
-                            <div data-v-05e8b5a6="" class="columns">
-                                <div data-v-05e8b5a6="" class="column col-8">
-                                    <address data-v-05e8b5a6="">
-                                        <div data-v-05e8b5a6="">
-                                            <strong data-v-05e8b5a6="">SatoshiLabs s.r.o.</strong>
-                                        </div>
-                                        <div data-v-05e8b5a6="">Kundratka 2359/17a</div>
-                                        <div data-v-05e8b5a6="">180 00 Prague 8</div>
-                                        <div data-v-05e8b5a6="">Czech Republic</div>
-                                        <div data-v-05e8b5a6="">Company ID: 02440032</div>
-                                        <div data-v-05e8b5a6="">+420 774 555 756</div>
-                                        <div data-v-05e8b5a6=""><a data-v-05e8b5a6="" href="https://trezor.io/support/" title="Contact Us" target="_blank" class="link-dimmed">support@satoshilabs.com</a>
-                                        </div>
-                                    </address>
-                                </div>
-                            </div>
-                            <div data-v-05e8b5a6="" class="columns">
-                                <div data-v-05e8b5a6="" class="column col-8">
-                                    <div data-v-05e8b5a6="" class="payment-info-items"><
-                                        div data-v-05e8b5a6="" class="card-icon GoPay"></div>
-                                        <div data-v-05e8b5a6="" class="card-icon btc"></div>
-                                    </div> <div data-v-05e8b5a6="" class="learn-more-button">
-                                        <a data-v-05e8b5a6="" href="/faq" title="Visit our FAQ">Learn more</a>
+                            {context.cart < 1 ?
+                                <>
+                                    <img src={add_shopping_cart} className="addCart align-self-center" />
+                                    <div className="card-body text-secondary text-center">
+                                        <h5 className="card-title">Cart empty</h5>
+                                        <p className="card-text">An empty cart is a sad cart :(</p>
+                                        <p className="card-text">Add some happiness!</p>
                                     </div>
-                                </div>
-                            </div>
-                        </div> */}
+                                </>
+                                :
+                                <>
+
+                                    <h4 className="d-flex justify-content-between align-items-center mb-3">
+                                        <span className="text-muted">Your cart</span>
+                                        <span className="badge badge-secondary badge-pill">{totalItemQty}</span>
+                                    </h4>
+                                    <ul className="list-group mb-3">
+
+                                        {context.cart.map(item => (
+                                            <li className="list-group-item d-flex justify-content-between lh-condensed">
+                                                <div>
+                                                    <h6 className="my-0">{item.manufacturer} {item.title}</h6>
+                                                    <small className="text-muted">x {item.qty}</small>
+                                                </div>
+                                                <span className="text-muted">${(item.price * item.qty).toFixed(2)}</span>
+                                            </li>
+                                        ))}
+                                        <li className="list-group-item d-flex justify-content-between">
+                                            <span>Total (USD)</span>
+                                            <strong>{context.cartTotal}</strong>
+                                        </li>
+                                    </ul>
+
+                                    {/* <form className="card p-2">
+                                        <div className="input-group">
+                                            <input type="text" className="form-control" placeholder="Promo code" />
+                                            <div className="input-group-append">
+                                                <button type="submit" className="btn btn-secondary">Redeem</button>
+                                            </div>
+                                        </div>
+                                    </form> */}
+                                </>
+                            }
+
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
