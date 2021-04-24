@@ -11,10 +11,11 @@ export const CartWidget = () => {
     return (
 
         <div className="d-flex">
-            {totalItemQty > 0 && <p className="m-0 align-self-center">{totalItemQty}</p>}
+
             <li className="nav-item">
-                <a className="nav-link text-light"><img className="img-fluid" style={{ maxWidth: 1.5 + 'rem' }} src={shopping_cart} alt="shopping_cart" /></a>
+                <a className="nav-link text-light"><img className="img-fluid " style={{ maxWidth: 1.5 + 'rem' }} src={shopping_cart} alt="shopping_cart" /></a>
             </li>
+            {totalItemQty > 0 && <p className="m-0 align-self-center badge badge-success badge-pill badge-cart">{totalItemQty}</p>}
         </div>
 
     )
