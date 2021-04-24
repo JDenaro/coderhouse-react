@@ -30,11 +30,11 @@ export const NavBar = () => {
                                     <a className="nav-link">Shop</a>
                                 </NavLink>
                             </li>
-                            <li className="nav-item">
+                            {/* <li className="nav-item">
                                 <NavLink to="/contact">
                                     <a className="nav-link">Contact</a>
                                 </NavLink>
-                            </li>
+                            </li> */}
                             <NavLink to="/cart">
                                 <CartWidget />
                             </NavLink>

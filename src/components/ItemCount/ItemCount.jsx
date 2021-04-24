@@ -32,12 +32,11 @@ export const ItemCount = ({ initial, stock, id, price, manufacturer, title }) =>
         // e.preventDefault();
         if (counter != 0) {
             setFinish(true);
-
+            context.calculateTotal();
         } else {
             alert('Cantidad no puede ser 0')
         }
     }
-
 
     return (
         <>

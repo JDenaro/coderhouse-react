@@ -18,15 +18,6 @@ export const Checkout = () => {
     let totalItemQty = 0
     context.cart.map(item => totalItemQty += item.qty)
 
-    // useEffect(() => {
-    //     let totalAux = 0
-    //     context.cart.map(item => {
-    //         totalAux = totalAux + (item.price * item.qty)
-    //         console.log(`sumando ${item.qty} ${item.manufacturer} ${item.title}`)
-    //         console.log(`totalAux es ${totalAux}`)
-    //     })
-    //     setTotal(totalAux)
-    // }, [context])
 
     function createOrder(e) {
         e.preventDefault();
@@ -78,7 +69,7 @@ export const Checkout = () => {
                         <div className="row">
                             <div className="col-md-6 mb-3">
                                 <label for="firstName">First name</label>
-                                <input type="text" className="form-control" id="firstName" placeholder="" required="" />
+                                <input type="text" className="form-control" id="firstName" placeholder="John Doe" required />
                                 <div className="invalid-feedback">
                                     Valid first name is required.
                                 </div>
@@ -104,7 +95,7 @@ export const Checkout = () => {
                         <div className="row">
                             <div className="col-md-6 mb-3">
                                 <label for="cc-name">Name on card</label>
-                                <input type="text" className="form-control" id="cc-name" placeholder="" required="" />
+                                <input type="text" className="form-control" id="cc-name" type="text" placeholder="" required="" />
                                 <small className="text-muted">Full name as displayed on card</small>
                                 <div className="invalid-feedback">
                                     Name on card is required
@@ -121,7 +112,7 @@ export const Checkout = () => {
                         <div className="row">
                             <div className="col-md-3 mb-3">
                                 <label for="cc-expiration">Expiration</label>
-                                <input type="text" className="form-control" id="cc-expiration" placeholder="" required="" />
+                                <input type="text" className="form-control" id="cc-expiration" placeholder="" required />
                                 <div className="invalid-feedback">
                                     Expiration date required
                                 </div>
@@ -135,7 +126,7 @@ export const Checkout = () => {
                             </div>
                         </div>
                         <hr className="mb-4"></hr>
-                        <button className="btn btn-success btn-lg btn-block" type="submit" onClick={createOrder}>Pay ${context.cartTotal}</button>
+                        <button className="btn btn-success btn-lg btn-block" type="submit" onClick={createOrder}>Pay $ {context.cartTotal}</button>
                     </form>
                 </div>
 
@@ -153,46 +144,32 @@ export const Checkout = () => {
                                     <h6 className="my-0">{item.manufacturer} {item.title}</h6>
                                     <small className="text-muted">x {item.qty}</small>
                                 </div>
-                                <span className="text-muted">${item.price * item.qty}</span>
+                                <span className="text-muted">$ {(item.price * item.qty).toFixed(2)}</span>
                             </li>
                         ))}
-                        <li className="list-group-item d-flex justify-content-between bg-light">
+                        {/* <li className="list-group-item d-flex justify-content-between bg-light">
                             <div className="text-success">
                                 <h6 className="my-0">Promo code</h6>
                                 <small>GET10OFF</small>
                             </div>
                             <span className="text-success">-$5</span>
-                        </li>
+                        </li> */}
                         <li className="list-group-item d-flex justify-content-between">
                             <span>Total (USD)</span>
-                            <strong>{context.cartTotal}</strong>
+                            <strong>$ {context.cartTotal}</strong>
                         </li>
                     </ul>
 
-                    <form className="card p-2">
+                    {/* <form className="card p-2">
                         <div className="input-group">
                             <input type="text" className="form-control" placeholder="Promo code" />
                             <div className="input-group-append">
                                 <button type="submit" className="btn btn-secondary">Redeem</button>
                             </div>
                         </div>
-                    </form>
+                    </form> */}
                 </div>
             </div>
-
-
-            {/* <div className="video-content d-none">
-                <div className="glass text-center border rounded p-3 px-5 animate__animated animate__fadeIn">
-                    <h1>Congratulations!</h1>
-                    <h4 className="mb-3">Your purchase is complete!</h4>
-
-                    <p className="mb-3">Hold your crypto with maximum security</p>
-                    <Link to="/shop">
-                        <button className="btn btn-success px-4 py-2">Finish</button>
-                    </Link>
-                </div>
-            </div> */}
-
         </div>
     )
 }

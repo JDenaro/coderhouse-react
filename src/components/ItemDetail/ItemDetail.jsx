@@ -1,10 +1,18 @@
+import { useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { ItemCount } from "../ItemCount/ItemCount";
+import CartContext from '../../context/CartContext';
+
+import './ItemDetail.css'
 
 export const ItemDetail = ({ items: { id, title, manufacturer, price, pictureUrl, description, stock, size, weight, connector } }) => {
 
     const history = useHistory();
+    const context = useContext(CartContext)
+    useEffect(() => {
+        context.calculateTotal();
 
+    }, [context.cart])
     return (
         <>
             <div className="container mt-5">
@@ -12,7 +20,7 @@ export const ItemDetail = ({ items: { id, title, manufacturer, price, pictureUrl
                     <div className="col-10">
                         <div className="item d-flex border rounded mb-4 bg-white">
                             <div className="col-5 py-4 d-flex justify-content-center">
-                                <img src={pictureUrl} alt="{title}" className="img-fluid" />
+                                <img src={pictureUrl} alt="{title}" className="img-item-detailed" />
                             </div>
                             <div className="col-7">
                                 <div className="card-block py-3 px-3">

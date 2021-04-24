@@ -12,6 +12,7 @@ import { ItemDetailContainer } from '../components/ItemDetailContainer/ItemDetai
 import { ItemListContainer } from '../components/ItemListContainer/ItemListContainer';
 import { NavBar } from '../components/NavBar/NavBar'
 import { Home } from '../components/Home/Home'
+import { CheckoutResume } from '../components/CheckoutResume/CheckoutResume';
 
 export const RouterApp = () => {
     return (
@@ -25,6 +26,10 @@ export const RouterApp = () => {
                 <Route path="/shop/category/:cat">
                     <NavBar />
                     <ItemListContainer />
+                </Route>
+                <Route path="/cart/checkout/resume">
+                    <NavBar />
+                    <CheckoutResume />
                 </Route>
                 <Route path="/cart/checkout">
                     <NavBar />

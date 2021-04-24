@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { RouterApp } from './routes/RouterApp';
 import CartContext from './context/CartContext'
+import './ReactiveWallet.css'
 
 export const ReactiveWallet = () => {
 

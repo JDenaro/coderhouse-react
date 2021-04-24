@@ -14,7 +14,7 @@ export const Home = () => {
                 <div className="video-content">
                     <div className="glass text-center border rounded p-3 px-5 animate__animated animate__fadeIn animate__slow animate__delay-2s">
                         <img src={shieldIcon} className="logo align-self-center" alt="logo" />
-                        <h1>Your crypto is only safe</h1>
+                        <h1 className="h1-home">Your crypto is only safe</h1>
                         <h1 className="mb-3">with YOU</h1>
 
                         <p className="mb-3">Hold your crypto with maximum security</p>
