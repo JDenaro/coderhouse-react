@@ -93,7 +93,7 @@ export const ItemListContainer = () => {
                                         ))}
                                         <li className="list-group-item d-flex justify-content-between">
                                             <span>Total (USD)</span>
-                                            <strong>{context.cartTotal}</strong>
+                                            <strong>${context.cartTotal}</strong>
                                         </li>
                                         <Link to="/cart/checkout">
                                             <button className="btn btn-success px-4 py-2 mt-3 mx-1 w-100">Checkout</button>

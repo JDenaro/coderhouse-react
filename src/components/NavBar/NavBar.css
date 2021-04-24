@@ -27,3 +27,13 @@ a:hover {
     color: white !important;
     text-decoration: none !important;
 }
+
+.cart-icon {
+    position: relative;
+}
+
+.cart-counter {
+    position: absolute;
+    top: 10%;
+    left: 81%;
+}

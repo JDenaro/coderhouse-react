@@ -7,16 +7,16 @@ export const Cart = () => {
     const context = useContext(CartContext)
     const [total, setTotal] = useState(0)
 
-    useEffect(() => {
-        let totalAux = 0
-        context.cart.map(item => {
-            totalAux = totalAux + (item.price * item.qty)
-            console.log(`sumando ${item.qty} ${item.manufacturer} ${item.title}`)
-            console.log(`totalAux es ${totalAux}`)
-        })
-        setTotal(totalAux)
-        context.setCartTotal(totalAux)
-    }, [context])
+    // useEffect(() => {
+    //     let totalAux = 0
+    //     context.cart.map(item => {
+    //         totalAux = totalAux + (item.price * item.qty)
+    //         console.log(`sumando ${item.qty} ${item.manufacturer} ${item.title}`)
+    //         console.log(`totalAux es ${totalAux}`)
+    //     })
+    //     setTotal(totalAux)
+    //     context.setCartTotal(totalAux)
+    // }, [context])
 
     return (
         <>

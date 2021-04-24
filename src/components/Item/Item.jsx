@@ -23,7 +23,7 @@ export const Item = (props) => {
                         <Link to={`/shop/item/${props.item.id}`}>
                             <button className="btn btn-success px-4 py-2" onClick={onAdd}>Add to cart</button>
                         </Link>
-                        <p className="m-0">{props.item.price} USD</p>
+                        <p className="m-0"><strong>{props.item.price} USD</strong></p>
                     </div>
 
                     <p className="card-text">{props.item.description}</p>

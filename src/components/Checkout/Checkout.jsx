@@ -18,15 +18,15 @@ export const Checkout = () => {
     let totalItemQty = 0
     context.cart.map(item => totalItemQty += item.qty)
 
-    useEffect(() => {
-        let totalAux = 0
-        context.cart.map(item => {
-            totalAux = totalAux + (item.price * item.qty)
-            console.log(`sumando ${item.qty} ${item.manufacturer} ${item.title}`)
-            console.log(`totalAux es ${totalAux}`)
-        })
-        setTotal(totalAux)
-    }, [context])
+    // useEffect(() => {
+    //     let totalAux = 0
+    //     context.cart.map(item => {
+    //         totalAux = totalAux + (item.price * item.qty)
+    //         console.log(`sumando ${item.qty} ${item.manufacturer} ${item.title}`)
+    //         console.log(`totalAux es ${totalAux}`)
+    //     })
+    //     setTotal(totalAux)
+    // }, [context])
 
     function createOrder(e) {
         e.preventDefault();
@@ -135,7 +135,7 @@ export const Checkout = () => {
                             </div>
                         </div>
                         <hr className="mb-4"></hr>
-                        <button className="btn btn-success btn-lg btn-block" type="submit" onClick={createOrder}>Pay ${total}</button>
+                        <button className="btn btn-success btn-lg btn-block" type="submit" onClick={createOrder}>Pay ${context.cartTotal}</button>
                     </form>
                 </div>
 
