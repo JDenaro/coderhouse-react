@@ -8,6 +8,7 @@ import shop_banner from '../../assets/images/shop_banner.png'
 
 import { getFirestore } from '../../configs/firebase';
 import CartContext from '../../context/CartContext';
+import { Link } from 'react-router-dom';
 
 
 export const ItemListContainer = () => {
@@ -77,7 +78,7 @@ export const ItemListContainer = () => {
 
                                     <h4 className="d-flex justify-content-between align-items-center mb-3">
                                         <span className="text-muted">Your cart</span>
-                                        <span className="badge badge-secondary badge-pill">{totalItemQty}</span>
+                                        <span className="badge badge-success badge-pill">{totalItemQty}</span>
                                     </h4>
                                     <ul className="list-group mb-3">
 
@@ -94,16 +95,10 @@ export const ItemListContainer = () => {
                                             <span>Total (USD)</span>
                                             <strong>{context.cartTotal}</strong>
                                         </li>
+                                        <Link to="/cart/checkout">
+                                            <button className="btn btn-success px-4 py-2 mt-3 mx-1 w-100">Checkout</button>
+                                        </Link>
                                     </ul>
-
-                                    {/* <form className="card p-2">
-                                        <div className="input-group">
-                                            <input type="text" className="form-control" placeholder="Promo code" />
-                                            <div className="input-group-append">
-                                                <button type="submit" className="btn btn-secondary">Redeem</button>
-                                            </div>
-                                        </div>
-                                    </form> */}
                                 </>
                             }
 

@@ -34,7 +34,7 @@ export const ReactiveWallet = () => {
       console.log('Calculando total')
       let aux = 0
       cart.map(item => aux += item.qty * item.price)
-      setCartTotal(aux)
+      setCartTotal(aux.toFixed(2))
     }
   }
 
