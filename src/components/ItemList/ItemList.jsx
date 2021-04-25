@@ -21,10 +21,7 @@ export const ItemList = (props) => {
 
     }, [cat])
 
-
     category === 'all' ? catItems = props.items : catItems = props.items.filter(item => item.category === category)
-
-
 
     return (
         <>

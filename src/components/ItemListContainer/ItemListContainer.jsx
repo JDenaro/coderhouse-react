@@ -53,15 +53,14 @@ export const ItemListContainer = () => {
                     <img src={shop_banner} alt="" className="img-fluid" />
                 </div>
                 <div className="col-8">
-                    <div className="row">
-                        {
-                            items.length < 1 ? <ItemSpinner /> : <ItemList items={items} />
-                        }
 
-                    </div>
+                    {
+                        items.length < 1 ? <ItemSpinner /> : <ItemList items={items} />
+                    }
+
                 </div>
 
-                <div className="col-4 porquillo">
+                <div className="col-4">
                     <div className="cart-wrapper">
                         <div className="card border p-3 ">
                             {context.cart < 1 ?

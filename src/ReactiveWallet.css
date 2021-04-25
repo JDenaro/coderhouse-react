@@ -89,3 +89,10 @@ input::-webkit-inner-spin-button {
     margin-right: 22px;
 
 }
+.crypto-icon {
+    transition: transform .3s ease
+}
+.crypto-icon:hover {
+    transform: scale(1.5);
+ 
+}

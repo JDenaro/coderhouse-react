@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import blockchain from '../../assets/video/blockchain2.mp4'
 import shieldIcon from '../../assets/icons/shield.svg';
-import './Home.css';
+// import './Home.css';
 
 export const Home = () => {
     return (
@@ -19,14 +19,14 @@ export const Home = () => {
 
                         <p className="mb-3">Hold your crypto with maximum security</p>
                         <div className="badges mb-3">
-                            <a><img src="https://trezor.io/static/images/coins/btc.svg" alt="" data-toggle="tooltip" data-title="Bitcoin" data-original-title="" title="" /></a>
-                            <a><img src="https://trezor.io/static/images/coins/eth.svg" alt="" data-toggle="tooltip" data-title="Ethereum" data-original-title="" title="" /></a>
-                            <a><img src="https://trezor.io/static/images/coins/bnb.svg" alt="" data-toggle="tooltip" data-title="Binance Coin" data-original-title="" title="" /></a>
-                            <a><img src="https://trezor.io/static/images/coins/etc.svg" alt="" data-toggle="tooltip" data-title="Ethereum Classic" data-original-title="" title="" /></a>
-                            <a><img src="https://trezor.io/static/images/coins/ltc.svg" alt="" data-toggle="tooltip" data-title="Litecoin" data-original-title="" title="" /></a>
-                            <a><img src="https://trezor.io/static/images/coins/dash.svg" alt="" data-toggle="tooltip" data-title="Dash" data-original-title="" title="" /></a>
-                            <a><img src="https://trezor.io/static/images/coins/zcash.svg" alt="" data-toggle="tooltip" data-title="Zcash" data-original-title="" title="" /></a>
-                            <a><img src="https://trezor.io/static/images/coins/xem.svg" alt="" data-toggle="tooltip" data-title="NEM" data-original-title="" title="" /></a>
+                            <a><img src="https://trezor.io/static/images/coins/btc.svg" className="crypto-icon" alt="" data-toggle="tooltip" data-title="Bitcoin" data-original-title="" title="" /></a>
+                            <a><img src="https://trezor.io/static/images/coins/eth.svg" className="crypto-icon" alt="" data-toggle="tooltip" data-title="Ethereum" data-original-title="" title="" /></a>
+                            <a><img src="https://trezor.io/static/images/coins/bnb.svg" className="crypto-icon" alt="" data-toggle="tooltip" data-title="Binance Coin" data-original-title="" title="" /></a>
+                            <a><img src="https://trezor.io/static/images/coins/etc.svg" className="crypto-icon" alt="" data-toggle="tooltip" data-title="Ethereum Classic" data-original-title="" title="" /></a>
+                            <a><img src="https://trezor.io/static/images/coins/ltc.svg" className="crypto-icon" alt="" data-toggle="tooltip" data-title="Litecoin" data-original-title="" title="" /></a>
+                            <a><img src="https://trezor.io/static/images/coins/dash.svg" className="crypto-icon" alt="" data-toggle="tooltip" data-title="Dash" data-original-title="" title="" /></a>
+                            <a><img src="https://trezor.io/static/images/coins/zcash.svg" className="crypto-icon" alt="" data-toggle="tooltip" data-title="Zcash" data-original-title="" title="" /></a>
+                            <a><img src="https://trezor.io/static/images/coins/xem.svg" className="crypto-icon" alt="" data-toggle="tooltip" data-title="NEM" data-original-title="" title="" /></a>
                             <a>and more!</a>
                         </div>
                         <Link to="/shop">

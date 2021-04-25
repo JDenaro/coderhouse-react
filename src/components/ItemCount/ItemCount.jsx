@@ -29,7 +29,6 @@ export const ItemCount = ({ initial, stock, id, price, manufacturer, title }) =>
     }
 
     const onAdd = (e) => {
-        // e.preventDefault();
         if (counter != 0) {
             setFinish(true);
             context.calculateTotal();
