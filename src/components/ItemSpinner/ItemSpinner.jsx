@@ -3,7 +3,7 @@ import './ItemSpinner.css'
 
 export const ItemSpinner = () => {
     return (
-        <div className="item d-flex bg-transparent w-100 py-5">
+        <div className="item-spinner d-flex bg-transparent w-100 py-5">
             <div className="col-12 py-4">
                 <div className="sk-folding-cube">
                     <div className="sk-cube1 sk-cube"></div>

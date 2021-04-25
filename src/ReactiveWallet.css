@@ -96,3 +96,9 @@ input::-webkit-inner-spin-button {
     transform: scale(1.5);
  
 }
+
+/* SPINNER */
+
+.item-spinner {
+    margin-top: 53.61px;
+}
