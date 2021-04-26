@@ -5,12 +5,13 @@ import "firebase/firestore";
 import { getFirestore } from '../../configs/firebase';
 import { Link, useHistory } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal'
+import { SpinnerBuy } from '../Spinners/SpinnerBuy/SpinnerBuy';
 
 export const CheckoutPayout = (props) => {
 
     const context = useContext(CartContext)
     const [db, setDb] = useState(getFirestore())
-
+    const [loading, setLoading] = useState(false)
     const [modalShow, setModalShow] = useState(false);
 
     const handleClose = () => setModalShow(false);
@@ -21,6 +22,7 @@ export const CheckoutPayout = (props) => {
 
 
     function createOrder(e) {
+        setLoading(true)
         e.preventDefault();
         disableForm();
         document.getElementById("submit-pay").disabled = "true"
@@ -43,6 +45,7 @@ export const CheckoutPayout = (props) => {
             console.log(resp);
             console.log(resp.id);
             props.setLastId(resp.id);
+            context.clearCart();
             handleShow();
         });
 
@@ -140,7 +143,7 @@ export const CheckoutPayout = (props) => {
                             </div>
                         </div>
                         <hr className="mb-4"></hr>
-                        <button className="btn btn-success btn-lg btn-block" id="submit-pay" type="submit" /* onClick={createOrder}  */>Pay $ {context.cartTotal}</button>
+                        <button className="btn btn-success btn-lg btn-block" id="submit-pay" type="submit">{loading ? <SpinnerBuy /> : <>Pay ${context.cartTotal}</>}</button>
                     </form>
                 </div>
 
@@ -153,12 +156,12 @@ export const CheckoutPayout = (props) => {
                     className="glass animate__animated animate__fadeIn"
                 >
                     <Modal.Body className="text-center">
-                        <h1 className="h1-home">Purchase completed!</h1>
+                        <h1 className="h1-home mt-3">Purchase completed!</h1>
 
                         <p className="mb-3">A confirmation has been sent to your email</p>
                         <p className="mb-3">Your order ID is: {props.lastId}</p>
                         <Link to="/home">
-                            <button className="btn btn-success px-4 py-2">Home</button>
+                            <button className="btn btn-success px-4 py-2 mb-3">Home</button>
                         </Link>
                     </Modal.Body>
                 </Modal>

@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import blockchain from '../../assets/video/blockchain2.mp4'
 import shieldIcon from '../../assets/icons/shield.svg';
+import { SpinnerBuy } from '../Spinners/SpinnerBuy/SpinnerBuy';
 // import './Home.css';
 
 export const Home = () => {
@@ -13,8 +14,8 @@ export const Home = () => {
                 </video>
                 <div className="video-content">
                     <div className="glass text-center border rounded p-3 px-5 animate__animated animate__fadeIn animate__slow animate__delay-2s">
-                        <img src={shieldIcon} className="logo align-self-center my-2" alt="logo" />
-                        <h2 className="h1-home">Your crypto is only safe</h2>
+                        {/* <img src={shieldIcon} className="logo align-self-center my-2" alt="logo" /> */}
+                        <h2 className="h1-home mt-3">Your crypto is only safe</h2>
                         <h2 className="mb-3">with YOU</h2>
 
                         <p className="mb-3">Hold your crypto with maximum security</p>
@@ -30,7 +31,7 @@ export const Home = () => {
                             <a>and more!</a>
                         </div>
                         <Link to="/shop">
-                            <button className="btn btn-success px-4 py-2">I want my wallet</button>
+                            <button className="btn btn-success px-4 py-2 my-2">I want my wallet</button>
                         </Link>
                     </div>
                 </div>
