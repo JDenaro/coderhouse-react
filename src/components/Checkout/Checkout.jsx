@@ -7,7 +7,6 @@ import "firebase/firestore";
 import { getFirebase, getFirestore } from '../../configs/firebase';
 import { useHistory } from 'react-router-dom';
 import { CheckoutPayout } from '../CheckoutPayout/CheckoutPayout';
-import { CheckoutResume } from '../CheckoutResume/CheckoutResume';
 
 export const Checkout = () => {
     const context = useContext(CartContext)
@@ -65,6 +64,6 @@ export const Checkout = () => {
     }
 
     return (
-        lastId == 0 ? <CheckoutPayout setLastId={setLastId} /> : <CheckoutResume lastId={lastId} />
+        <CheckoutPayout setLastId={setLastId} lastId={lastId} />
     )
 }

@@ -11,7 +11,7 @@ export const ItemSpinner = () => {
                     <div className="sk-cube4 sk-cube"></div>
                     <div className="sk-cube3 sk-cube"></div>
                 </div>
-                <h4 className="text-center mt-3">Cargando</h4>
+                <h4 className="text-center mt-3">Loading</h4>
             </div>
         </div>
     )
