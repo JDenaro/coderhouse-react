@@ -181,12 +181,12 @@ export const CheckoutPayout = (props) => {
                                     <h6 className="my-0">{item.manufacturer} {item.title}</h6>
                                     <small className="text-muted">x {item.qty}</small>
                                 </div>
-                                <span className="text-muted">$ {(item.price * item.qty).toFixed(2)}</span>
+                                <span className="text-muted">${(item.price * item.qty).toFixed(2)}</span>
                             </li>
                         ))}
                         <li className="list-group-item d-flex justify-content-between">
                             <span>Total (USD)</span>
-                            <strong>$ {context.cartTotal}</strong>
+                            <strong>${context.cartTotal}</strong>
                         </li>
                     </ul>
                 </div>
