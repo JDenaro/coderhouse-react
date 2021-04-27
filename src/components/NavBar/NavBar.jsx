@@ -30,11 +30,6 @@ export const NavBar = () => {
                                     <a className="nav-link">Shop</a>
                                 </NavLink>
                             </li>
-                            {/* <li className="nav-item">
-                                <NavLink to="/contact">
-                                    <a className="nav-link">Contact</a>
-                                </NavLink>
-                            </li> */}
                             <NavLink to="/cart">
                                 <CartWidget />
                             </NavLink>
@@ -43,25 +38,6 @@ export const NavBar = () => {
                     </div>
                 </div>
             </nav>
-            {/* <Switch>
-                    <Route path="/shop/item/:id">
-                        <ItemDetailContainer />
-                    </Route>
-                    <Route path="/contact">
-                        <Contact />
-                    </Route>
-                    <Route path="/shop">
-                        <ItemListContainer />
-                    </Route>
-                    <Route path="/home">
-                        <Home />
-                    </Route>
-                    <Route path="/">
-                        <Home />
-                    </Route>
-                </Switch>
-            </Router> */}
-
         </>
     )
 }

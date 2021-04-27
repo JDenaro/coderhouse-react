@@ -1,12 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import add_shopping_cart from '../../assets/icons/add-shopping-cart.svg';
 import CartContext from "../../context/CartContext"
 
 export const Cart = () => {
     const context = useContext(CartContext)
-    const [total, setTotal] = useState(0)
-
 
     return (
         <>

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { NavLink, useHistory } from 'react-router-dom'
 import add from "../../assets/icons/add.svg"
 import remove from "../../assets/icons/remove.svg"
@@ -29,7 +29,7 @@ export const ItemCount = ({ initial, stock, id, price, manufacturer, title }) =>
     }
 
     const onAdd = (e) => {
-        if (counter != 0) {
+        if (counter !== 0) {
             setFinish(true);
             context.calculateTotal();
         } else {
@@ -42,9 +42,9 @@ export const ItemCount = ({ initial, stock, id, price, manufacturer, title }) =>
             {console.log("el context es:", context)}
             <div className="d-flex justify-content-between align-items-center">
                 <div className="border rounded">
-                    <button className="btn" onClick={handleSubstract}><img src={remove} /></button>
+                    <button className="btn" onClick={handleSubstract}><img src={remove} alt="remove" /></button>
                     <input type="number" min="0" max={stock} className="text-center" value={counter} />
-                    <button className="btn" onClick={handleAdd}><img src={add} /></button>
+                    <button className="btn" onClick={handleAdd}><img src={add} alt="add" /></button>
                 </div>
                 <div className="d-block py-auto"><p className="m-0">Stock: {stock}</p></div>
             </div >

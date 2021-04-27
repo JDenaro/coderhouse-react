@@ -1,9 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import CartContext from "../../context/CartContext";
 import firebase from "firebase/app";
 import "firebase/firestore";
 import { getFirestore } from '../../configs/firebase';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal'
 import { SpinnerBuy } from '../Spinners/SpinnerBuy/SpinnerBuy';
 
@@ -46,6 +46,7 @@ export const CheckoutPayout = (props) => {
             console.log(resp.id);
             props.setLastId(resp.id);
             context.clearCart();
+            setLoading(false);
             handleShow();
         });
 
@@ -112,7 +113,7 @@ export const CheckoutPayout = (props) => {
                         <div className="row">
                             <div className="col-md-6 mb-3">
                                 <label for="cc-name">Name on card</label>
-                                <input type="text" className="form-control" id="cc-name" type="text" placeholder="John Doe" required />
+                                <input type="text" className="form-control" id="cc-name" placeholder="John Doe" required />
                                 <small className="text-muted">Full name as displayed on card</small>
                                 <div className="invalid-feedback">
                                     Name on card is required
@@ -170,7 +171,7 @@ export const CheckoutPayout = (props) => {
                 <div className="col-md-4 mb-4">
                     <h4 className="d-flex justify-content-between align-items-center mb-3">
                         <span className="text-muted">Your cart</span>
-                        <span className="badge badge-secondary badge-pill">{totalItemQty}</span>
+                        <span className="badge badge-success badge-pill">{totalItemQty}</span>
                     </h4>
                     <ul className="list-group mb-3">
 

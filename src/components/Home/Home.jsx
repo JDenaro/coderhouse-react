@@ -1,9 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import blockchain from '../../assets/video/blockchain2.mp4'
-import shieldIcon from '../../assets/icons/shield.svg';
-import { SpinnerBuy } from '../Spinners/SpinnerBuy/SpinnerBuy';
-// import './Home.css';
 
 export const Home = () => {
     return (

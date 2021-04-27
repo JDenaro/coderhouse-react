@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { Item } from '../Item/Item'
 import './ItemList.css'
-import { ItemCount } from '../ItemCount/ItemCount'
 
 
 export const ItemList = (props) => {
@@ -11,8 +10,6 @@ export const ItemList = (props) => {
     let catItems = []
 
     useEffect(() => {
-        // console.log('entando en useEffect, el estado es:', category)
-        // console.log('entando en useEffect, categoria es:', cat)
         if (cat === undefined) {
             setCategory('all')
         } else {
