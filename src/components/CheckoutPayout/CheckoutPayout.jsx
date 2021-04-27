@@ -22,8 +22,13 @@ export const CheckoutPayout = (props) => {
 
 
     function createOrder(e) {
-        setLoading(true)
         e.preventDefault();
+        if (document.getElementById("email").value !== document.getElementById("email2").value) {
+
+            alert("Los email no coinciden")
+            return
+        }
+        setLoading(true)
         disableForm();
         document.getElementById("submit-pay").disabled = "true"
         const newOrder = {
@@ -92,11 +97,27 @@ export const CheckoutPayout = (props) => {
                             </div>
                             </div>
                             <div className="col-md-6 mb-3">
+                                <label for="email">Phone number</label>
+                                <input type="number" className="form-control" id="phone" placeholder="11 5678 1234" required />
+                                <div className="invalid-feedback">
+                                    Please enter a valid phone number.
+                            </div>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-md-6 mb-3">
                                 <label for="email">Email</label>
                                 <input type="email" className="form-control" id="email" placeholder="you@example.com" required />
                                 <div className="invalid-feedback">
                                     Please enter a valid email address for shipping updates.
+                                </div>
                             </div>
+                            <div className="col-md-6 mb-3">
+                                <label for="email">Confirm Email</label>
+                                <input type="email2" className="form-control" id="email2" placeholder="you@example.com" required />
+                                <div className="invalid-feedback">
+                                    Email addresses do not match.
+                                </div>
                             </div>
                         </div>
 
