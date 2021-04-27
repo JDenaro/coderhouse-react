@@ -1,10 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import add_shopping_cart from '../../assets/icons/add-shopping-cart.svg';
 import CartContext from "../../context/CartContext"
 
 export const Cart = () => {
     const context = useContext(CartContext)
+
+    useEffect(() => {
+        context.calculateTotal();
+    }, [context])
 
     return (
         <>
