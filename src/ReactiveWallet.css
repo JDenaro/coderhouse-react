@@ -287,3 +287,11 @@ input::-webkit-inner-spin-button {
 .cart-price {
     white-space: nowrap;
 }
+
+/* FORM */
+
+.error {
+    position: absolute;
+    color: red;
+    font-size: .6rem;
+}

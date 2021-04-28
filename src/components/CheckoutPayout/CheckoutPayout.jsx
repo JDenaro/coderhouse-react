@@ -6,6 +6,10 @@ import { getFirestore } from '../../configs/firebase';
 import { Link } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal'
 import { SpinnerBuy } from '../Spinners/SpinnerBuy/SpinnerBuy';
+// import { Form, Col, InputGroup, Button } from 'react-bootstrap';
+import { Formik, Form } from 'formik';
+import { TextField } from './TextField';
+import * as Yup from 'yup';
 
 export const CheckoutPayout = (props) => {
 
@@ -20,26 +24,21 @@ export const CheckoutPayout = (props) => {
     let totalItemQty = 0
     context.cart.map(item => totalItemQty += item.qty)
 
+    // CREATE ORDER 2
 
-    function createOrder(e) {
-        e.preventDefault();
-        if (document.getElementById("email").value !== document.getElementById("email2").value) {
-
-            alert("Los email no coinciden")
-            return
-        }
-        setLoading(true)
+    function createOrder2(e) {
+        console.log('en order2')
+        setLoading(true);
         disableForm();
-        document.getElementById("submit-pay").disabled = "true"
         const newOrder = {
             user: {
-                id: document.getElementById("id").value,
-                name: document.getElementById("firstName").value,
-                lastName: document.getElementById("lastName").value,
-                email: document.getElementById("email").value,
+                id: e.id,
+                name: e.firstName,
+                lastName: e.lastName,
+                email: e.email,
             },
             products: [...context.cart],
-            address: document.getElementById("address").value,
+            address: e.address,
             createdOn: firebase.firestore.Timestamp.fromDate(new Date()),
             total: context.cartTotal,
         };
@@ -54,120 +53,137 @@ export const CheckoutPayout = (props) => {
             setLoading(false);
             handleShow();
         });
-
     }
 
     function disableForm() {
-        var form = document.getElementById("checkoutForm");
+        var form = document.getElementById("checkoutForm2");
         var elements = form.elements;
         for (var i = 0, len = elements.length; i < len; ++i) {
             elements[i].readOnly = true;
         }
+        setLoading(true)
     }
+
+    // YUP
+
+    const validate = Yup.object({
+        firstName: Yup.string()
+            .max(15, 'Must be 15 characters or less')
+            .required('Required'),
+        lastName: Yup.string()
+            .max(20, 'Must be 20 characters or less')
+            .required('Required'),
+        id: Yup.number()
+            // .max(8, 'Must be 8 numbers or less')
+            .required('Required'),
+        phone: Yup.string()
+            // .max(15, 'Must be 15 characters or less')
+            .required('Required'),
+        email: Yup.string()
+            .email('Email is invalid')
+            .required('Email is required'),
+        confirmEmail: Yup.string()
+            .email('Email is invalid')
+            .oneOf([Yup.ref('email'), null], 'Email must match')
+            .required('Email confirmation is required'),
+        address: Yup.string()
+            // .oneOf([Yup.ref('email'), null], 'Email must match')
+            .required('Required'),
+        cardName: Yup.string()
+            .required('Required'),
+        cardNumber: Yup.number()
+            .required('Required'),
+        cardExpiration: Yup.number()
+            .required('Required'),
+        cardCVV: Yup.number()
+            .required('Required'),
+
+    })
 
     return (
         <div className="container mt-5">
-            <div className="row rounded border py-3 bg-white justify-content-center">
+            <div className="row rounded border py-3 bg-white">
                 <div className="col-md-8">
                     <h4 className="mb-3">Billing address</h4>
-                    <form className="needs-validation" id="checkoutForm" onSubmit={createOrder} novalidate>
-                        <div className="row">
-                            <div className="col-md-6 mb-3">
-                                <label for="firstName">First name</label>
-                                <input type="text" className="form-control" id="firstName" placeholder="John" required />
-                                <div className="invalid-feedback">
-                                    Valid first name is required.
-                            </div>
-                            </div>
-                            <div className="col-md-6 mb-3">
-                                <label for="lastName">Last name</label>
-                                <input type="text" className="form-control" id="lastName" placeholder="Doe" required />
-                                <div className="invalid-feedback">
-                                    Valid last name is required.
-                            </div>
-                            </div>
-                        </div>
+                    <Formik
+                        initialValues={{
+                            firstName: '',
+                            lastName: '',
+                            id: '',
+                            phone: '',
+                            email: '',
+                            confirmEmail: '',
+                            address: '',
+                            cardName: '',
+                            cardNumber: '',
+                            cardExpiration: '',
+                            cardCVV: '',
 
-                        <div className="row">
-                            <div className="col-md-6 mb-3">
-                                <label for="id">ID (Argentinian DNI)</label>
-                                <input type="number" className="form-control" id="id" placeholder="30123456" maxlength="8" required />
-                                <div className="invalid-feedback">
-                                    Please enter a valid ID.
-                            </div>
-                            </div>
-                            <div className="col-md-6 mb-3">
-                                <label for="email">Phone number</label>
-                                <input type="number" className="form-control" id="phone" placeholder="11 5678 1234" required />
-                                <div className="invalid-feedback">
-                                    Please enter a valid phone number.
-                            </div>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-md-6 mb-3">
-                                <label for="email">Email</label>
-                                <input type="email" className="form-control" id="email" placeholder="you@example.com" required />
-                                <div className="invalid-feedback">
-                                    Please enter a valid email address for shipping updates.
-                                </div>
-                            </div>
-                            <div className="col-md-6 mb-3">
-                                <label for="email">Confirm Email</label>
-                                <input type="email2" className="form-control" id="email2" placeholder="you@example.com" required />
-                                <div className="invalid-feedback">
-                                    Email addresses do not match.
-                                </div>
-                            </div>
-                        </div>
+                        }}
+                        validationSchema={validate}
+                        // onSubmit={values => {
+                        //     createOrder2(values)
 
-                        <div class="mb-3">
-                            <label for="address">Address</label>
-                            <input type="text" class="form-control" id="address" placeholder="1234 Main St" required />
-                            <div class="invalid-feedback">
-                                Please enter your shipping address.
-                            </div>
-                        </div>
-                        <hr className="mb-3" />
-                        <h4 className="mb-3">Payment</h4>
-
-                        <div className="row">
-                            <div className="col-md-6 mb-3">
-                                <label for="cc-name">Name on card</label>
-                                <input type="text" className="form-control" id="cc-name" placeholder="John Doe" required />
-                                <small className="text-muted">Full name as displayed on card</small>
-                                <div className="invalid-feedback">
-                                    Name on card is required
-                            </div>
-                            </div>
-                            <div className="col-md-6 mb-3">
-                                <label for="cc-number">Credit card number</label>
-                                <input type="text" className="form-control" id="cc-number" placeholder="1234 1234 1234 1234" maxlength="16" required />
-                                <div className="invalid-feedback">
-                                    Credit card number is required
-                            </div>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-md-3 mb-3">
-                                <label for="cc-expiration">Expiration (MMYY)</label>
-                                <input type="text" className="form-control" id="cc-expiration" placeholder="12/25" maxlength="4" required />
-                                <div className="invalid-feedback">
-                                    Expiration date required
-                            </div>
-                            </div>
-                            <div className="col-md-3 mb-3">
-                                <label for="cc-cvv">CVV</label>
-                                <input type="text" className="form-control" id="cc-cvv" placeholder="123" maxlength="3" required />
-                                <div className="invalid-feedback">
-                                    Security code required
-                            </div>
-                            </div>
-                        </div>
-                        <hr className="mb-4"></hr>
-                        <button className="btn btn-success btn-lg btn-block" id="submit-pay" type="submit">{loading ? <SpinnerBuy /> : <>Pay ${context.cartTotal}</>}</button>
-                    </form>
+                        // }}
+                        onSubmit={createOrder2}
+                    >
+                        {formik => (
+                            <>
+                                <Form id="checkoutForm2">
+                                    <div className="row">
+                                        <div className="col-md-6 mb-2">
+                                            <TextField label="First Name" name="firstName" type="text" />
+                                        </div>
+                                        <div className="col-md-6 mb-2">
+                                            <TextField label="Last Name" name="lastName" type="text" />
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-md-6 mb-2">
+                                            <TextField label="ID (Argentinian DNI)" name="id" type="number" />
+                                        </div>
+                                        <div className="col-md-6 mb-2">
+                                            <TextField label="Phone number" name="phone" type="number" />
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-md-6 mb-2">
+                                            <TextField label="Email" name="email" type="email" />
+                                        </div>
+                                        <div className="col-md-6 mb-2">
+                                            <TextField label="Confirm Email" name="confirmEmail" type="email" />
+                                        </div>
+                                    </div>
+                                    <div class="mb-2">
+                                        <TextField label="Shipping address" name="address" type="text" />
+                                    </div>
+                                    <hr className="mb-4"></hr>
+                                    <h4 className="mb-3">Payment</h4>
+                                    <div className="row">
+                                        <div className="col-md-6 mb-3">
+                                            <TextField label="Name on card" name="cardName" type="text" />
+                                            <small className="text-muted">Full name as displayed on card</small>
+                                        </div>
+                                        <div className="col-md-6 mb-3">
+                                            <TextField label="Credit card number" name="cardNumber" type="number" />
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-md-3 mb-3">
+                                            <TextField label="Expiration dd-MM" name="cardExpiration" type="number" maxLength="4" />
+                                        </div>
+                                        <div className="col-md-3 mb-3">
+                                            <TextField label="CVV" name="cardCVV" type="number" maxlength="3" />
+                                        </div>
+                                    </div>
+                                    <hr className="mb-4"></hr>
+                                    <button className="btn btn-success btn-lg btn-block" id="submit-pay" type="submit">{loading ? <SpinnerBuy /> : <>Pay ${context.cartTotal}</>}</button>
+                                </Form>
+                            </>
+                        )}
+                    </Formik>
                 </div>
+
 
                 <Modal
                     show={modalShow}
